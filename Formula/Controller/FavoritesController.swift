@@ -74,7 +74,6 @@ class FavoritesController: UICollectionViewController {
         let calculateController = CalculateController()
         let favoritedFormulaItem = favoritedFormulas[indexPath.item]
         //FIXME: Hide Home Button and Save Image (assets or with json)
-        calculateController.navigationItem.rightBarButtonItem = UIBarButtonItem(title: nil, style: .plain, target: nil, action: nil)
         calculateController.calculateStackView.formulaTitle.text = favoritedFormulaItem.title
         navigationController?.pushViewController(calculateController, animated: true)
         print(favoritedFormulas[indexPath.item].title)

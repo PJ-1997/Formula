@@ -15,14 +15,13 @@ extension UserDefaults {
     func savedFormulas() -> [FormulaModel] {
         guard let savedFormulasData = UserDefaults.standard.object(forKey: UserDefaults.favoritedFormulaKey) as? Data else { return [] }
         guard let decodeFormula = try? NSKeyedUnarchiver.unarchiveTopLevelObjectWithData(savedFormulasData) as? [FormulaModel] else { return [] }
-        return decodeFormula ?? [FormulaModel]()
-        
+        return decodeFormula!
     }
     
     func deleteFormula(formula: FormulaModel) {
         let formulas = savedFormulas()
         let filteredFormulas = formulas.filter { (f) -> Bool in
-            return f.title != formula.title && f.type != formula.type
+            return f.title != formula.title
         }
         let data = try? NSKeyedArchiver.archivedData(withRootObject: filteredFormulas, requiringSecureCoding: false)
         UserDefaults.standard.set(data, forKey: UserDefaults.favoritedFormulaKey)

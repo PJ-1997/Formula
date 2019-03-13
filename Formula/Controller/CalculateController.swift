@@ -26,13 +26,13 @@ class CalculateController: UIViewController {
     }
     
     override func viewDidLayoutSubviews() {
-//        super.viewDidLayoutSubviews()
+        super.viewDidLayoutSubviews()
         self.view.setNeedsLayout()
         calculateStackView.calculateButton.layer.cornerRadius = calculateStackView.calculateButton.frame.size.height/2
         //FIXME: Messes up when in landscape
         calculateStackView.calculateButton.setGradientBackground(colorOne: UIColor.gradientLightBlue, colorTwo: UIColor.gradientDarkBlue)
     }
-
+    
     //MARK:- Setup Functions
     func setupNavigation() {
         navigationItem.title = "Calculate"

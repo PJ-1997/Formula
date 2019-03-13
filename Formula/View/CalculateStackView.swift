@@ -83,7 +83,6 @@ class CalculateStackView: UIStackView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupStackViews()
-        
     }
     
     func setupStackViews() {
