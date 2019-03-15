@@ -65,7 +65,8 @@ extension SearchController: UITableViewDataSource, UITableViewDelegate, CellDele
     }
     
     func didSelectStar(index: IndexPath) {
-        //        guard let cell = tableView.cellForRow(at: index) as? FormulasCell else { return }
+        guard let cell = tableView.cellForRow(at: index) as? FormulasCell else { return }
+        cell.scaleAnimate(scale: 0.96)
         //Saves to user Defaults
         let mathIndex = mathFormulas[index.row]
         let scienceIndex = scienceFormulas[index.row]

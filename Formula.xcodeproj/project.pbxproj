@@ -14,6 +14,7 @@
 		7F6D53B121D9FD39006DC738 /* FormulaModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F6D53B021D9FD39006DC738 /* FormulaModel.swift */; };
 		7F6D53B421DA0A10006DC738 /* FormulaStored.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F6D53B321DA0A10006DC738 /* FormulaStored.swift */; };
 		7F7B62DC2206E71E006E8C10 /* CalculateStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F7B62DB2206E71E006E8C10 /* CalculateStackView.swift */; };
+		7F8DC2B8223B21E900EB0903 /* Animations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F8DC2B7223B21E900EB0903 /* Animations.swift */; };
 		7F9EF83021DFEEE3006AA464 /* Keyboard+TextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F9EF82F21DFEEE3006AA464 /* Keyboard+TextField.swift */; };
 		7FB12A4121D59F2100005A88 /* FlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FB12A4021D59F2100005A88 /* FlowLayout.swift */; };
 		7FB12A4421D5CC0F00005A88 /* SettingsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FB12A4321D5CC0F00005A88 /* SettingsController.swift */; };
@@ -51,6 +52,7 @@
 		7F6D53B021D9FD39006DC738 /* FormulaModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormulaModel.swift; sourceTree = "<group>"; };
 		7F6D53B321DA0A10006DC738 /* FormulaStored.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormulaStored.swift; sourceTree = "<group>"; };
 		7F7B62DB2206E71E006E8C10 /* CalculateStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculateStackView.swift; sourceTree = "<group>"; };
+		7F8DC2B7223B21E900EB0903 /* Animations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Animations.swift; sourceTree = "<group>"; };
 		7F9EF82F21DFEEE3006AA464 /* Keyboard+TextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Keyboard+TextField.swift"; sourceTree = "<group>"; };
 		7FB12A4021D59F2100005A88 /* FlowLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlowLayout.swift; sourceTree = "<group>"; };
 		7FB12A4321D5CC0F00005A88 /* SettingsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsController.swift; sourceTree = "<group>"; };
@@ -185,6 +187,7 @@
 				7F9EF83121E00554006AA464 /* Calculate */,
 				7FFBEB6621D4DCCF00201AB9 /* Theme.swift */,
 				7F055072222A3DAE0047B0C6 /* UserDefaults.swift */,
+				7F8DC2B7223B21E900EB0903 /* Animations.swift */,
 				7FF31BA721D235C00004EFF9 /* Color+UIView+UISC.swift */,
 				7F9EF82F21DFEEE3006AA464 /* Keyboard+TextField.swift */,
 			);
@@ -338,6 +341,7 @@
 				7F6D53B121D9FD39006DC738 /* FormulaModel.swift in Sources */,
 				7F9EF83021DFEEE3006AA464 /* Keyboard+TextField.swift in Sources */,
 				7FB12A4421D5CC0F00005A88 /* SettingsController.swift in Sources */,
+				7F8DC2B8223B21E900EB0903 /* Animations.swift in Sources */,
 				7F7B62DC2206E71E006E8C10 /* CalculateStackView.swift in Sources */,
 				7FB4A25221D6D7D2006EBC5D /* FormulasCell.swift in Sources */,
 				7F6C21C721E169700059EBDA /* TextFieldDelegate.swift in Sources */,

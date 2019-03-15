@@ -38,19 +38,22 @@ class FavoritesController: UICollectionViewController {
     }
     
     @objc func handleLongPress(gesture: UILongPressGestureRecognizer) {
+        gesture.minimumPressDuration = 0.3
         let location = gesture.location(in: collectionView)
         guard let selectedIndexPath = collectionView.indexPathForItem(at: location) else { return }
-        
-        let alertController = UIAlertController(title: "Remove Formula", message: nil, preferredStyle: .actionSheet)
-        alertController.addAction(UIAlertAction(title: "Yes", style: .destructive, handler: { (_) in
-            let selectedFormula = self.favoritedFormulas[selectedIndexPath.item]
-            self.favoritedFormulas.remove(at: selectedIndexPath.item)
-            self.collectionView.deleteItems(at: [selectedIndexPath])
-            UserDefaults.standard.deleteFormula(formula: selectedFormula)
-        }))
-        
-        alertController.addAction(UIAlertAction(title: "Cancel", style: .cancel))
-        present(alertController, animated: true)
+        guard let cell = collectionView.cellForItem(at: selectedIndexPath) as? SubjectsCell else { return }
+        if gesture.state == .began {
+            cell.scaleAnimate(scale: 0.92)
+            let alertController = UIAlertController(title: "Remove Formula", message: nil, preferredStyle: .actionSheet)
+            alertController.addAction(UIAlertAction(title: "Yes", style: .destructive, handler: { (_) in
+                let selectedFormula = self.favoritedFormulas[selectedIndexPath.item]
+                self.favoritedFormulas.remove(at: selectedIndexPath.item)
+                self.collectionView.deleteItems(at: [selectedIndexPath])
+                UserDefaults.standard.deleteFormula(formula: selectedFormula)
+            }))
+            alertController.addAction(UIAlertAction(title: "Cancel", style: .cancel))
+            present(alertController, animated: true)
+        }
     }
     
     //MARK:- Setup Functions
