@@ -18,9 +18,44 @@ extension SearchController: UITableViewDataSource, UITableViewDelegate, CellDele
         case 0:
             calculateController.calculateStackView.formulaTitle.text = mathRow.title
             calculateController.calculateStackView.formulaImage.image = mathRow.formulaImage
+            //FIXME: Refactor this switch case
+            switch mathRow.title {
+            case "Area of Square":
+                calculateController.calculateStackView.middleTextField.removeFromSuperview()
+                calculateController.calculateStackView.rightTextField.removeFromSuperview()
+            case "Area of Circle":
+                calculateController.calculateStackView.middleTextField.removeFromSuperview()
+                calculateController.calculateStackView.rightTextField.removeFromSuperview()
+            case "Area of a Trapizoid":
+                print("area of trap")
+            case "Area of Rectangle":
+                calculateController.calculateStackView.rightTextField.removeFromSuperview()
+            default:
+                break
+            }
+//            if let sameForm = favoritedFormulas.filter({ $0.title == mathRow.title }).first {
+//                print("Has same in FF and SearchCon.: \(sameForm.title)")
+//                if sameForm.title == "Area of Square" {
+//                    print("This is correct")
+//                    calculateController.calculateStackView.middleTextField.removeFromSuperview()
+//                    calculateController.calculateStackView.rightTextField.removeFromSuperview()
+//                }
+//            }
         case 1:
             calculateController.calculateStackView.formulaTitle.text = scienceRow.title
             calculateController.calculateStackView.formulaImage.image = scienceRow.formulaImage
+            switch scienceRow.title {
+            case "Density":
+                print(scienceRow.title)
+            case "Speed":
+                print(scienceRow.title)
+            case "Momentum":
+                print(scienceRow.title)
+            case "Force":
+                print(scienceRow.title)
+            default:
+                break
+            }
         default:
             break
         }

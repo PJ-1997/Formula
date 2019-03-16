@@ -79,7 +79,6 @@ class FavoritesController: UICollectionViewController {
         //FIXME: Hide Home Button and Save Image (assets or with json)
         calculateController.calculateStackView.formulaTitle.text = favoritedFormulaItem.title
         navigationController?.pushViewController(calculateController, animated: true)
-        print(favoritedFormulas[indexPath.item].title)
     }
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
 //        if favoritedFormulas.isEmpty {
