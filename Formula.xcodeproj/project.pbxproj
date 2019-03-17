@@ -12,7 +12,6 @@
 		7F6556DB2225DFE800E39B6E /* FormulaTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F6556DA2225DFE800E39B6E /* FormulaTests.swift */; };
 		7F6C21C721E169700059EBDA /* TextFieldDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F6C21C621E169700059EBDA /* TextFieldDelegate.swift */; };
 		7F6D53B121D9FD39006DC738 /* FormulaModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F6D53B021D9FD39006DC738 /* FormulaModel.swift */; };
-		7F6D53B421DA0A10006DC738 /* FormulaStored.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F6D53B321DA0A10006DC738 /* FormulaStored.swift */; };
 		7F7B62DC2206E71E006E8C10 /* CalculateStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F7B62DB2206E71E006E8C10 /* CalculateStackView.swift */; };
 		7F8DC2B8223B21E900EB0903 /* Animations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F8DC2B7223B21E900EB0903 /* Animations.swift */; };
 		7F9EF83021DFEEE3006AA464 /* Keyboard+TextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F9EF82F21DFEEE3006AA464 /* Keyboard+TextField.swift */; };
@@ -22,6 +21,7 @@
 		7FB4A25221D6D7D2006EBC5D /* FormulasCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FB4A25121D6D7D2006EBC5D /* FormulasCell.swift */; };
 		7FBBC71421D447B4002A35CE /* SearchController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FBBC71321D447B4002A35CE /* SearchController.swift */; };
 		7FBBC71621D46468002A35CE /* SubjectsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FBBC71521D46468002A35CE /* SubjectsCell.swift */; };
+		7FCCC34D223E34F400EC2C94 /* Formulas.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FCCC34C223E34F400EC2C94 /* Formulas.swift */; };
 		7FE2D58B22023F5B00A79095 /* UIView+Layout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FE2D58A22023F5B00A79095 /* UIView+Layout.swift */; };
 		7FF1AF9B21DE72C200E38208 /* CalculateController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FF1AF9A21DE72C200E38208 /* CalculateController.swift */; };
 		7FF31BA821D235C00004EFF9 /* Color+UIView+UISC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FF31BA721D235C00004EFF9 /* Color+UIView+UISC.swift */; };
@@ -50,7 +50,6 @@
 		7F6556DC2225DFE800E39B6E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7F6C21C621E169700059EBDA /* TextFieldDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldDelegate.swift; sourceTree = "<group>"; };
 		7F6D53B021D9FD39006DC738 /* FormulaModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormulaModel.swift; sourceTree = "<group>"; };
-		7F6D53B321DA0A10006DC738 /* FormulaStored.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormulaStored.swift; sourceTree = "<group>"; };
 		7F7B62DB2206E71E006E8C10 /* CalculateStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculateStackView.swift; sourceTree = "<group>"; };
 		7F8DC2B7223B21E900EB0903 /* Animations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Animations.swift; sourceTree = "<group>"; };
 		7F9EF82F21DFEEE3006AA464 /* Keyboard+TextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Keyboard+TextField.swift"; sourceTree = "<group>"; };
@@ -60,6 +59,7 @@
 		7FB4A25121D6D7D2006EBC5D /* FormulasCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormulasCell.swift; sourceTree = "<group>"; };
 		7FBBC71321D447B4002A35CE /* SearchController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchController.swift; sourceTree = "<group>"; };
 		7FBBC71521D46468002A35CE /* SubjectsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubjectsCell.swift; sourceTree = "<group>"; };
+		7FCCC34C223E34F400EC2C94 /* Formulas.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Formulas.swift; sourceTree = "<group>"; };
 		7FE2D58A22023F5B00A79095 /* UIView+Layout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Layout.swift"; sourceTree = "<group>"; };
 		7FF1AF9A21DE72C200E38208 /* CalculateController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculateController.swift; sourceTree = "<group>"; };
 		7FF31BA721D235C00004EFF9 /* Color+UIView+UISC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Color+UIView+UISC.swift"; sourceTree = "<group>"; };
@@ -103,7 +103,7 @@
 			isa = PBXGroup;
 			children = (
 				7FF8BE4221BE026A00321425 /* Assets.xcassets */,
-				7F6D53B321DA0A10006DC738 /* FormulaStored.swift */,
+				7FCCC34C223E34F400EC2C94 /* Formulas.swift */,
 			);
 			path = Assets;
 			sourceTree = "<group>";
@@ -337,7 +337,6 @@
 			files = (
 				7FF1AF9B21DE72C200E38208 /* CalculateController.swift in Sources */,
 				7F0E7F7D221F6DEA0007B1B9 /* Color+Gradient.swift in Sources */,
-				7F6D53B421DA0A10006DC738 /* FormulaStored.swift in Sources */,
 				7F6D53B121D9FD39006DC738 /* FormulaModel.swift in Sources */,
 				7F9EF83021DFEEE3006AA464 /* Keyboard+TextField.swift in Sources */,
 				7FB12A4421D5CC0F00005A88 /* SettingsController.swift in Sources */,
@@ -347,6 +346,7 @@
 				7F6C21C721E169700059EBDA /* TextFieldDelegate.swift in Sources */,
 				7FB12A4821D6033200005A88 /* TableView Delegate+Data.swift in Sources */,
 				7FF8BE3E21BE026900321425 /* FavoritesController.swift in Sources */,
+				7FCCC34D223E34F400EC2C94 /* Formulas.swift in Sources */,
 				7FBBC71421D447B4002A35CE /* SearchController.swift in Sources */,
 				7FBBC71621D46468002A35CE /* SubjectsCell.swift in Sources */,
 				7F055073222A3DAE0047B0C6 /* UserDefaults.swift in Sources */,

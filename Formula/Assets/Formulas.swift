@@ -1,14 +1,16 @@
 //
-//  FormulaStored.swift
+//  Formulas.swift
 //  Formula
 //
-//  Created by Pedro on 12/31/18.
-//  Copyright © 2018 Pedro. All rights reserved.
+//  Created by Pedro on 3/17/19.
+//  Copyright © 2019 Pedro. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
-extension SearchController {
+class Formulas {
+    
+    static let shared = Formulas()
     
     func addMathFormulas() -> [FormulaModel] {
         var mathForm: [FormulaModel] = []
@@ -16,13 +18,13 @@ extension SearchController {
         let circle = FormulaModel(title: "Area of Circle", type: "Math", cellImage: nil, formulaImage: #imageLiteral(resourceName: "Circle"))
         let trapizoid = FormulaModel(title: "Area of a Trapizoid", type: "Math", cellImage: nil, formulaImage: #imageLiteral(resourceName: "Trap"))
         let rectangle = FormulaModel(title: "Area of Rectangle", type: "Math", cellImage: nil, formulaImage: #imageLiteral(resourceName: "Rect"))
-//        let rectangle0 = FormulaModel(title: "Area of Rectangle", type: "Math", cellImage: nil, formulaImage: #imageLiteral(resourceName: "Rect"))
-//        let rectangle1 = FormulaModel(title: "Area ", type: "Math", cellImage: nil, formulaImage: #imageLiteral(resourceName: "Rect"))
-//        let rectangle2 = FormulaModel(title: "Area of ", type: "Math", cellImage: nil, formulaImage: #imageLiteral(resourceName: "Rect"))
-//        let rectangle3 = FormulaModel(title: " of Rectangle", type: "Math", cellImage: nil, formulaImage: #imageLiteral(resourceName: "Rect"))
-//        let rectangle4 = FormulaModel(title: "Area  Rectangle", type: "Math", cellImage: nil, formulaImage: #imageLiteral(resourceName: "Rect"))
-//        let rectangle5 = FormulaModel(title: "Area of ", type: "Math", cellImage: nil, formulaImage: #imageLiteral(resourceName: "Rect"))
-//        mathForm += [squared, circle, trapizoid, rectangle, rectangle0 ,rectangle1, rectangle2, rectangle3, rectangle4, rectangle5]
+        //        let rectangle0 = FormulaModel(title: "Area of Rectangle", type: "Math", cellImage: nil, formulaImage: #imageLiteral(resourceName: "Rect"))
+        //        let rectangle1 = FormulaModel(title: "Area ", type: "Math", cellImage: nil, formulaImage: #imageLiteral(resourceName: "Rect"))
+        //        let rectangle2 = FormulaModel(title: "Area of ", type: "Math", cellImage: nil, formulaImage: #imageLiteral(resourceName: "Rect"))
+        //        let rectangle3 = FormulaModel(title: " of Rectangle", type: "Math", cellImage: nil, formulaImage: #imageLiteral(resourceName: "Rect"))
+        //        let rectangle4 = FormulaModel(title: "Area  Rectangle", type: "Math", cellImage: nil, formulaImage: #imageLiteral(resourceName: "Rect"))
+        //        let rectangle5 = FormulaModel(title: "Area of ", type: "Math", cellImage: nil, formulaImage: #imageLiteral(resourceName: "Rect"))
+        //        mathForm += [squared, circle, trapizoid, rectangle, rectangle0 ,rectangle1, rectangle2, rectangle3, rectangle4, rectangle5]
         mathForm += [squared, circle, trapizoid, rectangle]
         return mathForm
     }

@@ -32,8 +32,8 @@ class SearchController: UIViewController {
         setupSegmentedController(segmentedController)
         setupNavigationItems()
         setupTableView()
-        mathFormulas = addMathFormulas()
-        scienceFormulas = addScienceFormulas()
+        mathFormulas = Formulas.shared.addMathFormulas()
+        scienceFormulas = Formulas.shared.addScienceFormulas()
     }
     
     //MARK:- Setup Functions
