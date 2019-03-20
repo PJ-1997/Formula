@@ -18,12 +18,19 @@ class SearchController: UIViewController {
         return tableView
     }()
     
+    let segmentedController: UISegmentedControl = {
+        let sc = UISegmentedControl(items: ["Math", "Science"])
+        sc.selectedSegmentIndex = 0
+        sc.addTarget(self, action: #selector(handleSegment(sender:)), for: .valueChanged)
+        sc.style()
+        return sc
+    }()
+    
     let cellId = "cellId"
     var listOfFormulas = UserDefaults.standard.savedFormulas()
     var mathFormulas = [FormulaModel]()
     var scienceFormulas = [FormulaModel]()
-    let subjects = ["Math", "Science"]
-    lazy var segmentedController = UISegmentedControl(items: subjects)
+    lazy var rowsToDisplay = mathFormulas
     
     //MARK:- ViewController's Lifecycle
     override func viewDidLoad() {
@@ -51,8 +58,6 @@ class SearchController: UIViewController {
     }
     
     fileprivate func setupSegmentedController(_ segmentedController: UISegmentedControl) {
-        segmentedController.style()
-        segmentedController.addTarget(self, action: #selector(handleSegment(sender:)), for: .valueChanged)
         view.addSubview(segmentedController)
         segmentedController.anchor(top: view.safeAreaLayoutGuide.topAnchor, leading: view.safeAreaLayoutGuide.leadingAnchor, bottom: nil, trailing: view.safeAreaLayoutGuide.trailingAnchor , padding: .init(top: 10, left: 10, bottom: 0, right: 10))
         segmentedController.heightAnchor.constraint(equalToConstant: 30).isActive = true
@@ -64,6 +69,14 @@ class SearchController: UIViewController {
     }
     
     @objc func handleSegment(sender: UISegmentedControl) {
+        switch segmentedController.selectedSegmentIndex {
+        case 0:
+            rowsToDisplay = mathFormulas
+        case 1:
+            rowsToDisplay = scienceFormulas
+        default:
+            break
+        }
         tableView.reloadData()
     }
 }
