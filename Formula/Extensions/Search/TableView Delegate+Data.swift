@@ -55,9 +55,9 @@ extension SearchController: UITableViewDataSource, UITableViewDelegate, CellDele
         cell.formulaName.text = rowsToDisplayIndex.title
         switch segmentedController.selectedSegmentIndex {
         case 0:
-            cell.subjectImageView.image = #imageLiteral(resourceName: "metallica")
+            cell.subjectImageView.image = #imageLiteral(resourceName: "MC")
         case 1:
-            cell.subjectImageView.image = #imageLiteral(resourceName: "nirvana")
+            cell.subjectImageView.image = #imageLiteral(resourceName: "SC")
         default:
             break
         }

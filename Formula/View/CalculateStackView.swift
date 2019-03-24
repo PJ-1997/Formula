@@ -31,7 +31,7 @@ class CalculateStackView: UIStackView {
     
     var formulaImage: UIImageView = {
         let imageView = UIImageView()
-        imageView.image = #imageLiteral(resourceName: "metallica")
+        imageView.image = #imageLiteral(resourceName: "MC")
         imageView.contentMode = .center
         imageView.translatesAutoresizingMaskIntoConstraints = false
         return imageView

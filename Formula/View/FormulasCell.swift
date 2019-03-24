@@ -34,7 +34,7 @@ class FormulasCell: UITableViewCell {
     }()
     
     let subjectImageView: UIImageView = {
-        let imageView = UIImageView(image: #imageLiteral(resourceName: "metallica"))
+        let imageView = UIImageView()
         imageView.contentMode = .scaleAspectFit
         imageView.translatesAutoresizingMaskIntoConstraints = false
         return imageView

@@ -7,7 +7,7 @@
 //
 
 import UIKit
-//TODO: 1. Add to userDefaults
+
 class SearchController: UIViewController {
     
     let tableView: UITableView = {
