@@ -7,14 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		7F055073222A3DAE0047B0C6 /* UserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F055072222A3DAE0047B0C6 /* UserDefaults.swift */; };
 		7F0E7F7D221F6DEA0007B1B9 /* Color+Gradient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F0E7F7C221F6DEA0007B1B9 /* Color+Gradient.swift */; };
 		7F6556DB2225DFE800E39B6E /* FormulaTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F6556DA2225DFE800E39B6E /* FormulaTests.swift */; };
 		7F6C21C721E169700059EBDA /* TextFieldDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F6C21C621E169700059EBDA /* TextFieldDelegate.swift */; };
 		7F6D53B121D9FD39006DC738 /* FormulaModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F6D53B021D9FD39006DC738 /* FormulaModel.swift */; };
 		7F7B62DC2206E71E006E8C10 /* CalculateStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F7B62DB2206E71E006E8C10 /* CalculateStackView.swift */; };
-		7F8DC2B8223B21E900EB0903 /* Animations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F8DC2B7223B21E900EB0903 /* Animations.swift */; };
-		7F9EF83021DFEEE3006AA464 /* Keyboard+TextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F9EF82F21DFEEE3006AA464 /* Keyboard+TextField.swift */; };
 		7FB12A4121D59F2100005A88 /* FlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FB12A4021D59F2100005A88 /* FlowLayout.swift */; };
 		7FB12A4421D5CC0F00005A88 /* SettingsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FB12A4321D5CC0F00005A88 /* SettingsController.swift */; };
 		7FB12A4821D6033200005A88 /* TableView Delegate+Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FB12A4721D6033200005A88 /* TableView Delegate+Data.swift */; };
@@ -24,7 +21,7 @@
 		7FCCC34D223E34F400EC2C94 /* Formulas.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FCCC34C223E34F400EC2C94 /* Formulas.swift */; };
 		7FE2D58B22023F5B00A79095 /* UIView+Layout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FE2D58A22023F5B00A79095 /* UIView+Layout.swift */; };
 		7FF1AF9B21DE72C200E38208 /* CalculateController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FF1AF9A21DE72C200E38208 /* CalculateController.swift */; };
-		7FF31BA821D235C00004EFF9 /* Color+UIView+UISC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FF31BA721D235C00004EFF9 /* Color+UIView+UISC.swift */; };
+		7FF31BA821D235C00004EFF9 /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FF31BA721D235C00004EFF9 /* Extension.swift */; };
 		7FF8BE3C21BE026900321425 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FF8BE3B21BE026900321425 /* AppDelegate.swift */; };
 		7FF8BE3E21BE026900321425 /* FavoritesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FF8BE3D21BE026900321425 /* FavoritesController.swift */; };
 		7FF8BE4321BE026A00321425 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7FF8BE4221BE026A00321425 /* Assets.xcassets */; };
@@ -43,7 +40,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		7F055072222A3DAE0047B0C6 /* UserDefaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaults.swift; sourceTree = "<group>"; };
 		7F0E7F7C221F6DEA0007B1B9 /* Color+Gradient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Gradient.swift"; sourceTree = "<group>"; };
 		7F6556D82225DFE800E39B6E /* FormulaTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FormulaTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		7F6556DA2225DFE800E39B6E /* FormulaTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormulaTests.swift; sourceTree = "<group>"; };
@@ -51,8 +47,6 @@
 		7F6C21C621E169700059EBDA /* TextFieldDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldDelegate.swift; sourceTree = "<group>"; };
 		7F6D53B021D9FD39006DC738 /* FormulaModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormulaModel.swift; sourceTree = "<group>"; };
 		7F7B62DB2206E71E006E8C10 /* CalculateStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculateStackView.swift; sourceTree = "<group>"; };
-		7F8DC2B7223B21E900EB0903 /* Animations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Animations.swift; sourceTree = "<group>"; };
-		7F9EF82F21DFEEE3006AA464 /* Keyboard+TextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Keyboard+TextField.swift"; sourceTree = "<group>"; };
 		7FB12A4021D59F2100005A88 /* FlowLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlowLayout.swift; sourceTree = "<group>"; };
 		7FB12A4321D5CC0F00005A88 /* SettingsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsController.swift; sourceTree = "<group>"; };
 		7FB12A4721D6033200005A88 /* TableView Delegate+Data.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TableView Delegate+Data.swift"; sourceTree = "<group>"; };
@@ -62,7 +56,7 @@
 		7FCCC34C223E34F400EC2C94 /* Formulas.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Formulas.swift; sourceTree = "<group>"; };
 		7FE2D58A22023F5B00A79095 /* UIView+Layout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Layout.swift"; sourceTree = "<group>"; };
 		7FF1AF9A21DE72C200E38208 /* CalculateController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculateController.swift; sourceTree = "<group>"; };
-		7FF31BA721D235C00004EFF9 /* Color+UIView+UISC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Color+UIView+UISC.swift"; sourceTree = "<group>"; };
+		7FF31BA721D235C00004EFF9 /* Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
 		7FF8BE3821BE026900321425 /* Formula.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Formula.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7FF8BE3B21BE026900321425 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7FF8BE3D21BE026900321425 /* FavoritesController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesController.swift; sourceTree = "<group>"; };
@@ -186,10 +180,7 @@
 				7FB12A4621D6031D00005A88 /* Search */,
 				7F9EF83121E00554006AA464 /* Calculate */,
 				7FFBEB6621D4DCCF00201AB9 /* Theme.swift */,
-				7F055072222A3DAE0047B0C6 /* UserDefaults.swift */,
-				7F8DC2B7223B21E900EB0903 /* Animations.swift */,
-				7FF31BA721D235C00004EFF9 /* Color+UIView+UISC.swift */,
-				7F9EF82F21DFEEE3006AA464 /* Keyboard+TextField.swift */,
+				7FF31BA721D235C00004EFF9 /* Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -338,9 +329,7 @@
 				7FF1AF9B21DE72C200E38208 /* CalculateController.swift in Sources */,
 				7F0E7F7D221F6DEA0007B1B9 /* Color+Gradient.swift in Sources */,
 				7F6D53B121D9FD39006DC738 /* FormulaModel.swift in Sources */,
-				7F9EF83021DFEEE3006AA464 /* Keyboard+TextField.swift in Sources */,
 				7FB12A4421D5CC0F00005A88 /* SettingsController.swift in Sources */,
-				7F8DC2B8223B21E900EB0903 /* Animations.swift in Sources */,
 				7F7B62DC2206E71E006E8C10 /* CalculateStackView.swift in Sources */,
 				7FB4A25221D6D7D2006EBC5D /* FormulasCell.swift in Sources */,
 				7F6C21C721E169700059EBDA /* TextFieldDelegate.swift in Sources */,
@@ -349,11 +338,10 @@
 				7FCCC34D223E34F400EC2C94 /* Formulas.swift in Sources */,
 				7FBBC71421D447B4002A35CE /* SearchController.swift in Sources */,
 				7FBBC71621D46468002A35CE /* SubjectsCell.swift in Sources */,
-				7F055073222A3DAE0047B0C6 /* UserDefaults.swift in Sources */,
 				7FB12A4121D59F2100005A88 /* FlowLayout.swift in Sources */,
 				7FF8BE3C21BE026900321425 /* AppDelegate.swift in Sources */,
 				7FE2D58B22023F5B00A79095 /* UIView+Layout.swift in Sources */,
-				7FF31BA821D235C00004EFF9 /* Color+UIView+UISC.swift in Sources */,
+				7FF31BA821D235C00004EFF9 /* Extension.swift in Sources */,
 				7FFBEB6721D4DCCF00201AB9 /* Theme.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

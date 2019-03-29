@@ -9,13 +9,13 @@
 import UIKit
 
 extension CalculateController: UITextFieldDelegate {
-    
-    func textFieldDidBeginEditing(_ textField: UITextField) {
-        textField.placeholder = ""
-    }
-
-    func textFieldDidEndEditing(_ textField: UITextField) {
-        textField.placeholder = "B"
-    }
-    
+  
+  func textFieldDidBeginEditing(_ textField: UITextField) {
+    textField.placeholder = ""
+  }
+  
+  func textFieldDidEndEditing(_ textField: UITextField) {
+    textField.placeholder = "B"
+  }
+  
 }
