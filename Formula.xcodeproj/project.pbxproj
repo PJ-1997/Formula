@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		7F0E7F7D221F6DEA0007B1B9 /* Color+Gradient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F0E7F7C221F6DEA0007B1B9 /* Color+Gradient.swift */; };
 		7F6556DB2225DFE800E39B6E /* FormulaTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F6556DA2225DFE800E39B6E /* FormulaTests.swift */; };
-		7F6C21C721E169700059EBDA /* TextFieldDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F6C21C621E169700059EBDA /* TextFieldDelegate.swift */; };
 		7F6D53B121D9FD39006DC738 /* FormulaModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F6D53B021D9FD39006DC738 /* FormulaModel.swift */; };
 		7F7B62DC2206E71E006E8C10 /* CalculateStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F7B62DB2206E71E006E8C10 /* CalculateStackView.swift */; };
 		7FB12A4121D59F2100005A88 /* FlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FB12A4021D59F2100005A88 /* FlowLayout.swift */; };
@@ -44,7 +43,6 @@
 		7F6556D82225DFE800E39B6E /* FormulaTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FormulaTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		7F6556DA2225DFE800E39B6E /* FormulaTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormulaTests.swift; sourceTree = "<group>"; };
 		7F6556DC2225DFE800E39B6E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		7F6C21C621E169700059EBDA /* TextFieldDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldDelegate.swift; sourceTree = "<group>"; };
 		7F6D53B021D9FD39006DC738 /* FormulaModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormulaModel.swift; sourceTree = "<group>"; };
 		7F7B62DB2206E71E006E8C10 /* CalculateStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculateStackView.swift; sourceTree = "<group>"; };
 		7FB12A4021D59F2100005A88 /* FlowLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlowLayout.swift; sourceTree = "<group>"; };
@@ -119,14 +117,6 @@
 			path = FormulaTests;
 			sourceTree = "<group>";
 		};
-		7F9EF83121E00554006AA464 /* Calculate */ = {
-			isa = PBXGroup;
-			children = (
-				7F6C21C621E169700059EBDA /* TextFieldDelegate.swift */,
-			);
-			path = Calculate;
-			sourceTree = "<group>";
-		};
 		7FB12A3F21D59EED00005A88 /* Favorite */ = {
 			isa = PBXGroup;
 			children = (
@@ -178,7 +168,6 @@
 			children = (
 				7FB12A3F21D59EED00005A88 /* Favorite */,
 				7FB12A4621D6031D00005A88 /* Search */,
-				7F9EF83121E00554006AA464 /* Calculate */,
 				7FFBEB6621D4DCCF00201AB9 /* Theme.swift */,
 				7FF31BA721D235C00004EFF9 /* Extension.swift */,
 			);
@@ -332,7 +321,6 @@
 				7FB12A4421D5CC0F00005A88 /* SettingsController.swift in Sources */,
 				7F7B62DC2206E71E006E8C10 /* CalculateStackView.swift in Sources */,
 				7FB4A25221D6D7D2006EBC5D /* FormulasCell.swift in Sources */,
-				7F6C21C721E169700059EBDA /* TextFieldDelegate.swift in Sources */,
 				7FB12A4821D6033200005A88 /* TableView Delegate+Data.swift in Sources */,
 				7FF8BE3E21BE026900321425 /* FavoritesController.swift in Sources */,
 				7FCCC34D223E34F400EC2C94 /* Formulas.swift in Sources */,

@@ -13,6 +13,9 @@ class Theme {
     class func fontFormulaBold(size: CGFloat) -> UIFont {
       return UIFont(name: "AvenirNext-Bold", size: size)!
     }
+    class func fontFormulaSemiBold (size: CGFloat) -> UIFont {
+      return UIFont(name: "AvenirNext-DemiBold", size: size)!
+    }
   }
 }
 

@@ -68,11 +68,6 @@ class CalculateController: UIViewController {
     navigationItem.title = "Calculate"
     navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Home", style: .done, target: self, action: #selector(handleDismissToFavorite))
     view.backgroundColor = UIColor.greyFormula
-    
-    calculateStackView.rightTextField.delegate = self
-    calculateStackView.middleTextField.delegate = self
-    calculateStackView.lefttextField.delegate = self
-    
     view.addSubview(calculateStackView)
     calculateStackView.anchor(top: view.safeAreaLayoutGuide.topAnchor, leading: view.safeAreaLayoutGuide.leadingAnchor, bottom: view.safeAreaLayoutGuide.bottomAnchor, trailing: view.safeAreaLayoutGuide.trailingAnchor)
   }
