@@ -78,6 +78,7 @@ class CalculateStackView: UIStackView, UITextFieldDelegate {
     let label = UILabel()
     label.text = "Answer PlaceHolder"
     label.textAlignment = .center
+    label.font = UIFont.systemFont(ofSize: 22, weight: .semibold)
     label.translatesAutoresizingMaskIntoConstraints = false
     return label
   }()
@@ -88,14 +89,13 @@ class CalculateStackView: UIStackView, UITextFieldDelegate {
   var secondInput: Float?
   var thirdInput: Float?
   
-  var answer: Float?
-  
   override init(frame: CGRect) {
     super.init(frame: frame)
     setupStackViews()
   }
   
   override func layoutSubviews() {
+    answerLabel.alpha = 0
     switch formulaTitle.text {
     case "Area of Square":
       lefttextField.placeholder = "s"
@@ -108,16 +108,24 @@ class CalculateStackView: UIStackView, UITextFieldDelegate {
     case "Area of Rectangle":
       lefttextField.placeholder = "B"
       middleTextField.placeholder = "H"
-
-      //
-      //      case "Density":
-      //        calculateStackView.formulaImage.image = #imageLiteral(resourceName: "Density")
-      //      case "Speed":
-      //        calculateStackView.formulaImage.image = #imageLiteral(resourceName: "Speed")
-      //      case "Momentum":
-      //        calculateStackView.formulaImage.image = #imageLiteral(resourceName: "Mom")
-      //      case "Force":
-    //        calculateStackView.formulaImage.image = #imageLiteral(resourceName: "Force")
+      
+      
+    case "Density":
+      lefttextField.placeholder = "Density"
+      middleTextField.placeholder = "Mass"
+      rightTextField.placeholder = "Volume"
+    case "Speed":
+      lefttextField.placeholder = "Speed"
+      middleTextField.placeholder = "Distance"
+      rightTextField.placeholder = "Time"
+    case "Momentum":
+      lefttextField.placeholder = "Momentum"
+      middleTextField.placeholder = "Mass"
+      rightTextField.placeholder = "Velocity"
+    case "Force":
+      lefttextField.placeholder = "Force"
+      middleTextField.placeholder = "Mass"
+      rightTextField.placeholder = "Acceleration"
     default:
       break
     }
@@ -169,7 +177,6 @@ class CalculateStackView: UIStackView, UITextFieldDelegate {
     bottomStackView.anchor(top: middleStackView.bottomAnchor, leading: safeAreaLayoutGuide.leadingAnchor, bottom: nil, trailing: safeAreaLayoutGuide.trailingAnchor, padding: .init(top: 50, left: 8, bottom: 0, right: 8))
     bottomStackView.heightAnchor.constraint(equalToConstant: 100).isActive = true
   }
-
   
   required init(coder: NSCoder) {
     fatalError("init(coder:) has not been implemented")
@@ -178,17 +185,31 @@ class CalculateStackView: UIStackView, UITextFieldDelegate {
   //MARK:- Handle Functions
   @objc func handleLeftTextField(sender: UITextField) {
     let numFloat = (sender.text! as NSString).floatValue
-    firstInput = numFloat
+    if sender.text?.isEmpty == true {
+      firstInput = nil
+    } else {
+      firstInput = numFloat
+    }
+    
   }
   
   @objc func handleMiddleTextField(sender: UITextField) {
     let numFloat = (sender.text! as NSString).floatValue
-    secondInput = numFloat
+    if sender.text?.isEmpty == true {
+      secondInput = nil
+    } else {
+      secondInput = numFloat
+    }
+    
   }
   
   @objc func handleRightTextField(sender: UITextField) {
     let numFloat = (sender.text! as NSString).floatValue
-    thirdInput = numFloat
+    if sender.text?.isEmpty == true {
+      thirdInput = nil
+    } else {
+      thirdInput = numFloat
+    }
   }
   
   @objc func handleCalculate() {
@@ -205,9 +226,10 @@ class CalculateStackView: UIStackView, UITextFieldDelegate {
     case "Area of Rectangle":
       let areaofRectangleAns = areaofRectangle(num1: firstInput ?? 0, num2: secondInput ?? 0)
       answerLabel.text = "\(areaofRectangleAns)"
-      //
-      //      case "Density":
-      //        calculateStackView.formulaImage.image = #imageLiteral(resourceName: "Density")
+      
+    case "Density":
+      let density = densityFormula(density: firstInput, mass: secondInput, volume: thirdInput)
+      answerLabel.text = "\(density)"
       //      case "Speed":
       //        calculateStackView.formulaImage.image = #imageLiteral(resourceName: "Speed")
       //      case "Momentum":
@@ -217,9 +239,11 @@ class CalculateStackView: UIStackView, UITextFieldDelegate {
     default:
       break
     }
+    answerLabel.alpha = 1
   }
   
   //MARK:- Logic
+  //Math
   //Nothing should be 0
   func areaofSquare(num: Float) -> Float {
     let ans = powf(num, 2)
@@ -248,6 +272,23 @@ class CalculateStackView: UIStackView, UITextFieldDelegate {
     return round
   }
   
-
+  //Science
+  func densityFormula(density: Float?, mass: Float?, volume: Float?) -> Float {
+    var ans: Float!
+    if (mass != nil && volume != nil) {
+      ans = mass! / volume!
+      print("Density is Empty")
+    } else if (density != nil && volume != nil) {
+      ans = volume! * density!
+      print("Mass is Empty")
+    } else if (mass != nil && density != nil) {
+      ans = mass! * density!
+      print("Volume is Empty")
+    } else {
+      print("Something is wrong")
+      return 0
+    }
+    return ans
+  }
   
 }
