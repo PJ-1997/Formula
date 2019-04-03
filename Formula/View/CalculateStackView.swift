@@ -215,21 +215,21 @@ class CalculateStackView: UIStackView, UITextFieldDelegate {
   @objc func handleCalculate() {
     switch formulaTitle.text {
     case "Area of Square":
-      let areaofSquareAns = areaofSquare(num: firstInput ?? 0)
-      answerLabel.text = "\(areaofSquareAns)"
+      let areaofSquareAns = areaofSquare(num: firstInput)
+      answerLabel.text = areaofSquareAns
     case "Area of Circle":
-      let areaofCircleAns = areaofCircle(num: firstInput ?? 0)
-      answerLabel.text = "\(areaofCircleAns)"
+      let areaofCircleAns = areaofCircle(num: firstInput)
+      answerLabel.text = areaofCircleAns
     case "Area of a Trapizoid":
-      let areaofTrapizoidAns = areaofTrapizoid(num1: firstInput ?? 0, num2: secondInput ?? 0, num3: thirdInput ?? 0)
-      answerLabel.text = "\(areaofTrapizoidAns)"
+      let areaofTrapizoidAns = areaofTrapizoid(num1: firstInput, num2: secondInput, num3: thirdInput)
+      answerLabel.text = areaofTrapizoidAns
     case "Area of Rectangle":
-      let areaofRectangleAns = areaofRectangle(num1: firstInput ?? 0, num2: secondInput ?? 0)
-      answerLabel.text = "\(areaofRectangleAns)"
+      let areaofRectangleAns = areaofRectangle(num1: firstInput, num2: secondInput)
+      answerLabel.text = areaofRectangleAns
       
     case "Density":
       let density = densityFormula(density: firstInput, mass: secondInput, volume: thirdInput)
-      answerLabel.text = "\(density)"
+      answerLabel.text = density
     case "Speed":
       let speed = speedFormula(speed: firstInput, distance: secondInput, time: thirdInput)
       answerLabel.text = "\(speed)"
@@ -247,51 +247,92 @@ class CalculateStackView: UIStackView, UITextFieldDelegate {
   
   //MARK:- Logic
   //Math
-  //Nothing should be 0
-  func areaofSquare(num: Float) -> Float {
-    let ans = powf(num, 2)
-    let round = (ans * 100).rounded()/100
-    return round
+  func areaofSquare(num: Float?) -> String {
+    var ans: Float!
+    if num == nil {
+      return "Put value in"
+    } else if num! <= 0 {
+      return "No real Solution"
+    } else {
+      ans = powf(num!, 2)
+      let round = (ans * 100).rounded()/100
+      ans = round
+      return "A = \(ans!)"
+    }
   }
-  //Nothing should be 0
-  func areaofCircle(num: Float) -> Float {
-    let pi = (Float.pi)
-    let ans = powf(num, 2) * pi
-    let round = (ans * 1000).rounded()/1000
-    return round
+  
+  func areaofCircle(num: Float?) -> String {
+    var ans: Float!
+    if num == nil {
+      return "Put value in"
+    } else if num! <= 0 {
+      return "No real Solution"
+    } else {
+      let pi = (Float.pi)
+      ans = powf(num!, 2) * pi
+      let round = (ans * 1000).rounded()/1000
+      ans = round
+      return "A = \(ans!)"
+    }
   }
-  //Nothing should be 0
-  func areaofTrapizoid(num1: Float, num2: Float, num3: Float) -> Float {
-    let base = num1 + num2
-    let times = base * num3
-    let ans = times * 0.5
-    let round = (ans * 1000).rounded()/1000
-    return round
+  
+  func areaofTrapizoid(num1: Float?, num2: Float?, num3: Float?) -> String {
+    var ans: Float!
+    if num1 == nil || num2 == nil || num3 == nil{
+      return "Fill all boxes"
+    } else if num1! <= 0 || num2! <= 0 || num3! <= 0 {
+      return "No real Solution"
+    } else {
+      let base = num1! + num2!
+      let times = base * num3!
+      ans = times * 0.5
+      let round = (ans * 1000).rounded()/1000
+      ans = round
+      return "A = \(ans!)"
+    }
   }
-  //Nothing should be 0
-  func areaofRectangle(num1: Float, num2: Float) -> Float {
-    let ans = num1 * num2
-    let round = (ans * 1000).rounded()/1000
-    return round
+  
+  func areaofRectangle(num1: Float?, num2: Float?) -> String {
+    var ans: Float!
+    if num1 == nil || num2 == nil {
+      return "Fill all boxes"
+    } else if num1! <= 0 || num2! <= 0 {
+      return "No real Solution"
+    } else {
+      ans = num1! * num2!
+      let round = (ans * 1000).rounded()/1000
+      ans = round
+      return "A = \(ans!)"
+    }
   }
   
   //Science
-  func densityFormula(density: Float?, mass: Float?, volume: Float?) -> Float {
+  //TODO:- Fix Science Formulas
+  func densityFormula(density: Float?, mass: Float?, volume: Float?) -> String {
     var ans: Float!
     if (mass != nil && volume != nil) {
       ans = mass! / volume!
       print("Density is Empty")
+      return "D = \(ans!)"
     } else if (density != nil && volume != nil) {
       ans = volume! * density!
       print("Mass is Empty")
+      return "M = \(ans!)"
     } else if (mass != nil && density != nil) {
       ans = mass! * density!
       print("Volume is Empty")
+      return "V = \(ans!)"
+      
+    } else if density == nil || mass == nil || volume == nil {
+      return "Fill two boxes"
+      
+    } else if density! <= 0 {
+      
+      return "No real solution"
     } else {
-      print("Something is wrong")
-      return 0
+      return "shit"
     }
-    return ans
+    
   }
   
   func speedFormula(speed: Float?, distance: Float?, time: Float?) -> Float {
