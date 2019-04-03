@@ -10,10 +10,10 @@ import UIKit
 
 
 class OnboardingController: UIViewController {
-  
+  //FIME: Make info stack view and images smaller for max phones
+  //FIXME: Refactor to View
   let welcomeLabel: UILabel = {
     let label = UILabel()
-    //    label.backgroundColor = .blue
     label.text = "Welcome to"
     label.font = UIFont.systemFont(ofSize: 42, weight: .black)
     label.translatesAutoresizingMaskIntoConstraints = false
@@ -39,32 +39,15 @@ class OnboardingController: UIViewController {
   //MARK: Horiz. Stack Views
   //Search
   let searchInfo = UILabel(text: "Search from different formulas from math and science")
-  let searchImage: UIImageView = {
-    let iv = UIImageView()
-    iv.backgroundColor = .red
-    iv.translatesAutoresizingMaskIntoConstraints = false
-    return iv
-  }()
+  let searchImage = UIImageView(image: #imageLiteral(resourceName: "searchOn"), insets: -12)
   
   //Favorite
   let favoriteInfo = UILabel(text: "Favorite your most used formulas and delete by long pressing")
-  let favoriteImage: UIImageView = {
-    let iv = UIImageView()
-    iv.backgroundColor = .red
-    iv.translatesAutoresizingMaskIntoConstraints = false
-    return iv
-  }()
+  let favoriteImage = UIImageView(image: #imageLiteral(resourceName: "fav.pdf"), insets: -12)
   
   //Clean
-  let cleanInfo = UILabel(text: "Clean and straight forward Design")
-  let cleanImage: UIImageView = {
-    let iv = UIImageView()
-    iv.backgroundColor = .red
-    iv.translatesAutoresizingMaskIntoConstraints = false
-    return iv
-  }()
-  
-  
+  let cleanInfo = UILabel(text: "Clean and straight forward design")
+  let cleanImage = UIImageView(image: #imageLiteral(resourceName: "thumbup.pdf"), insets: -12)
   
   let continueButton: UIButton = {
     let button = UIButton(type: .system)
@@ -95,17 +78,17 @@ class OnboardingController: UIViewController {
     
     //Search
     let searchStackView = UIStackView(arrangedSubviews: [searchImage, searchInfo])
-    searchStackView.spacing = 16
+    searchStackView.spacing = 8
     searchImage.widthAnchor.constraint(equalTo: searchImage.heightAnchor).isActive = true
     
     //Favorite
     let favoriteStackView = UIStackView(arrangedSubviews: [favoriteImage, favoriteInfo])
-    favoriteStackView.spacing = 16
+    favoriteStackView.spacing = 8
     favoriteImage.widthAnchor.constraint(equalTo: favoriteImage.heightAnchor).isActive = true
     
     //Clean
     let cleanStackView = UIStackView(arrangedSubviews: [cleanImage, cleanInfo])
-    cleanStackView.spacing = 16
+    cleanStackView.spacing = 8
     cleanImage.widthAnchor.constraint(equalTo: cleanImage.heightAnchor).isActive = true
     
     let infoVerticalStackView = VerticalStackView(arrangedSubviews: [searchStackView, favoriteStackView, cleanStackView], spacing: 30)
@@ -134,33 +117,6 @@ class OnboardingController: UIViewController {
     self.present(navFavoriteController, animated: true, completion: {
       UserDefaults.standard.set("true", forKey: "onBoarding")
     })
-  }
-  
-}
-
-//MARK:- Extensions
-extension UILabel {
-  convenience init(text: String) {
-    self.init(frame: .zero)
-    self.text = text
-    self.font = UIFont.systemFont(ofSize: 15)
-    self.numberOfLines = 0
-    self.minimumScaleFactor = 0.5
-    self.adjustsFontSizeToFitWidth = true
-  }
-}
-
-class VerticalStackView: UIStackView {
-  
-  init(arrangedSubviews: [UIView], spacing: CGFloat = 0) {
-    super.init(frame: .zero)
-    arrangedSubviews.forEach({addArrangedSubview($0)})
-    self.spacing = spacing
-    self.axis = .vertical
-  }
-  
-  required init(coder: NSCoder) {
-    fatalError("init(coder:) has not been implemented")
   }
   
 }

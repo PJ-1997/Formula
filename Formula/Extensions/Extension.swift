@@ -70,6 +70,28 @@ extension UIViewController {
   }
 }
 
+//MARK:- UILabel
+extension UILabel {
+  convenience init(text: String) {
+    self.init(frame: .zero)
+    self.text = text
+    self.font = UIFont.systemFont(ofSize: 15)
+    self.numberOfLines = 0
+    self.minimumScaleFactor = 0.5
+    self.adjustsFontSizeToFitWidth = true
+  }
+}
+
+//MARK:- UIImageView
+extension UIImageView {
+  convenience init(image: UIImage, insets: CGFloat) {
+    self.init(image: nil)
+    let insets: CGFloat = insets
+    self.image = image.withAlignmentRectInsets(UIEdgeInsets(top: insets, left: insets, bottom: insets, right: insets))
+    self.translatesAutoresizingMaskIntoConstraints = false
+  }
+}
+
 //MARK:- UserDefaults
 extension UserDefaults {
   
