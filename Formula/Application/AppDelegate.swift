@@ -26,7 +26,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
       vc = OnboardingController()
     } else {
       //shows main screen
-      vc = UINavigationController(rootViewController: favoriteController)
+//      vc = UINavigationController(rootViewController: favoriteController)
+      vc = OnboardingController()
     }
     self.window?.rootViewController = vc
     
