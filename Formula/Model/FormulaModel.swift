@@ -14,12 +14,14 @@ class FormulaModel: NSObject, NSCoding {
     //        print("Trying to transform Formula into Data")
     aCoder.encode(title, forKey: "titleKey")
     aCoder.encode(type, forKey: "typeKey")
+    aCoder.encode(isFavorited, forKey: "isFavKey")
   }
   
   required init?(coder aDecoder: NSCoder) {
     //        print("Trying to turn Data into FormulaModel Object")
     title = aDecoder.decodeObject(forKey: "titleKey") as! String
     type = aDecoder.decodeObject(forKey: "typeKey") as! String
+    isFavorited = aDecoder.decodeBool(forKey: "isFavKey")
   }
   
   //TODO: Change the UIimage not optional
@@ -27,12 +29,14 @@ class FormulaModel: NSObject, NSCoding {
   var type: String
   var cellImage: UIImage?
   var formulaImage: UIImage?
+  var isFavorited: Bool
   
-  init(title: String, type: String, cellImage: UIImage?, formulaImage: UIImage?) {
+  init(title: String, type: String, cellImage: UIImage?, formulaImage: UIImage?, isFav: Bool) {
     self.title = title
     self.type = type
     self.cellImage = cellImage
     self.formulaImage = formulaImage
+    self.isFavorited = isFav
   }
   
 }

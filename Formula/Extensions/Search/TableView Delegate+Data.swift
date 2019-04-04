@@ -14,7 +14,6 @@ extension SearchController: UITableViewDataSource, UITableViewDelegate, CellDele
     let calculateController = CalculateController()
     let rowIndex = rowsToDisplay[indexPath.row]
     calculateController.calculateStackView.formulaTitle.text = rowIndex.title
-    //        calculateController.calculateStackView.formulaImage.image = rowIndex.formulaImage
     navigationController?.pushViewController(calculateController, animated: true)
   }
   
@@ -28,6 +27,19 @@ extension SearchController: UITableViewDataSource, UITableViewDelegate, CellDele
     cell.selectionStyle = .none
     cell.delegate = self
     cell.indexPath = indexPath
+    
+    let mapRowsToDisplay = rowsToDisplay.map({$0.title})
+    let mapListOfFormulas = listOfFormulas.map({$0.title})
+    let hasFavorited = mapRowsToDisplay.filter({mapListOfFormulas.contains($0)})
+    //Favorite Star Logic
+    if hasFavorited.contains(rowsToDisplayIndex.title) {
+      cell.buttonStar.setImage(#imageLiteral(resourceName: "YellowStar"), for: .normal)
+      rowsToDisplayIndex.isFavorited = true
+    } else {
+      cell.buttonStar.setImage(#imageLiteral(resourceName: "GrayStar"), for: .normal)
+      rowsToDisplayIndex.isFavorited = false
+    }
+    
     cell.formulaName.text = rowsToDisplayIndex.title
     switch segmentedController.selectedSegmentIndex {
     case 0:
@@ -48,12 +60,21 @@ extension SearchController: UITableViewDataSource, UITableViewDelegate, CellDele
     guard let cell = tableView.cellForRow(at: index) as? FormulasCell else { return }
     let rowIndex = rowsToDisplay[index.row]
     cell.scaleAnimate(scale: 0.96)
-    //Saves to user Defaults
-    listOfFormulas.append(rowIndex)
-    if let data = try? NSKeyedArchiver.archivedData(withRootObject: listOfFormulas, requiringSecureCoding: false) {
-      UserDefaults.standard.set(data, forKey: UserDefaults.favoritedFormulaKey)
-    }
     
+    let hasFavorited = rowIndex.isFavorited
+    rowIndex.isFavorited = !hasFavorited
+    //Favorite Star Pressed Logic
+    if hasFavorited == true {
+      cell.buttonStar.setImage(#imageLiteral(resourceName: "GrayStar"), for: .normal)
+      UserDefaults.standard.deleteFormula(formula: rowIndex)
+    } else {
+      cell.buttonStar.setImage(#imageLiteral(resourceName: "YellowStar"), for: .normal)
+      //Saves to user Defaults
+      listOfFormulas.append(rowIndex)
+      if let data = try? NSKeyedArchiver.archivedData(withRootObject: listOfFormulas, requiringSecureCoding: false) {
+        UserDefaults.standard.set(data, forKey: UserDefaults.favoritedFormulaKey)
+      }
+    }
   }
   
 }
