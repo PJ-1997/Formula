@@ -46,12 +46,12 @@ extension SearchController: UITableViewDataSource, UITableViewDelegate, CellDele
   
   func didSelectStar(index: IndexPath) {
     guard let cell = tableView.cellForRow(at: index) as? FormulasCell else { return }
+    let rowIndex = rowsToDisplay[index.row]
     cell.scaleAnimate(scale: 0.96)
     //Saves to user Defaults
-    let rowIndex = rowsToDisplay[index.row]
     listOfFormulas.append(rowIndex)
-    if let mathData = try? NSKeyedArchiver.archivedData(withRootObject: listOfFormulas, requiringSecureCoding: false) {
-      UserDefaults.standard.set(mathData, forKey: UserDefaults.favoritedFormulaKey)
+    if let data = try? NSKeyedArchiver.archivedData(withRootObject: listOfFormulas, requiringSecureCoding: false) {
+      UserDefaults.standard.set(data, forKey: UserDefaults.favoritedFormulaKey)
     }
     
   }
