@@ -27,10 +27,12 @@ extension SearchController: UITableViewDataSource, UITableViewDelegate, CellDele
     cell.selectionStyle = .none
     cell.delegate = self
     cell.indexPath = indexPath
+    cell.formulaName.text = rowsToDisplayIndex.title
     
     let mapRowsToDisplay = rowsToDisplay.map({$0.title})
     let mapListOfFormulas = listOfFormulas.map({$0.title})
     let hasFavorited = mapRowsToDisplay.filter({mapListOfFormulas.contains($0)})
+    
     //Favorite Star Logic
     if hasFavorited.contains(rowsToDisplayIndex.title) {
       cell.buttonStar.setImage(#imageLiteral(resourceName: "YellowStar"), for: .normal)
@@ -40,7 +42,6 @@ extension SearchController: UITableViewDataSource, UITableViewDelegate, CellDele
       rowsToDisplayIndex.isFavorited = false
     }
     
-    cell.formulaName.text = rowsToDisplayIndex.title
     switch segmentedController.selectedSegmentIndex {
     case 0:
       cell.subjectImageView.image = #imageLiteral(resourceName: "MC")

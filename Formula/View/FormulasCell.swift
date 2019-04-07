@@ -20,7 +20,6 @@ class FormulasCell: UITableViewCell {
   let cellView: UIView = {
     let view = UIView()
     view.backgroundColor = UIColor.white
-    view.setTableCellShadow()
     return view
   }()
   
@@ -52,6 +51,11 @@ class FormulasCell: UITableViewCell {
   override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
     super.init(style: style, reuseIdentifier: reuseIdentifier)
     setup()
+  }
+  
+  override func layoutSubviews() {
+    super.layoutSubviews()
+    cellView.setTableCellShadow()
   }
   
   fileprivate func setup() {
