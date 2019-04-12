@@ -14,6 +14,7 @@ extension SearchController: UITableViewDataSource, UITableViewDelegate, CellDele
     let calculateController = CalculateController()
     let rowIndex = rowsToDisplay[indexPath.row]
     calculateController.calculateStackView.formulaTitle.text = rowIndex.title
+    calculateController.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Home", style: .done, target: self, action: #selector(handleDismissToFavorite))
     navigationController?.pushViewController(calculateController, animated: true)
   }
   
@@ -76,6 +77,11 @@ extension SearchController: UITableViewDataSource, UITableViewDelegate, CellDele
         UserDefaults.standard.set(data, forKey: UserDefaults.favoritedFormulaKey)
       }
     }
+  }
+  
+  //MARK:- Handle Functions
+  @objc func handleDismissToFavorite() {
+    self.dismiss(animated: true, completion: nil)
   }
   
 }

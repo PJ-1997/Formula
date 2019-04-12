@@ -29,6 +29,7 @@ class CalculateController: UIViewController {
   override func viewDidLayoutSubviews() {
     super.viewDidLayoutSubviews()
     self.view.setNeedsLayout()
+    calculateStackView.calculateButton.frame = calculateStackView.calculateButton.bounds
     calculateStackView.calculateButton.layer.cornerRadius = calculateStackView.calculateButton.frame.size.height/2
     //FIXME: Messes up when in landscape
     calculateStackView.calculateButton.setGradientBackground(colorOne: UIColor.gradientLightBlue, colorTwo: UIColor.gradientDarkBlue)
@@ -66,16 +67,9 @@ class CalculateController: UIViewController {
   
   func setupNavigation() {
     navigationItem.title = "Calculate"
-    navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Home", style: .done, target: self, action: #selector(handleDismissToFavorite))
     view.backgroundColor = UIColor.greyFormula
     view.addSubview(calculateStackView)
     calculateStackView.anchor(top: view.safeAreaLayoutGuide.topAnchor, leading: view.safeAreaLayoutGuide.leadingAnchor, bottom: view.safeAreaLayoutGuide.bottomAnchor, trailing: view.safeAreaLayoutGuide.trailingAnchor)
   }
-  
-  //MARK:- Handle Functions
-  @objc func handleDismissToFavorite() {
-    print("Going home")
-    self.dismiss(animated: true, completion: nil)
-  }
-  
+
 }

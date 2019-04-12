@@ -13,7 +13,6 @@
 		7F6D53B121D9FD39006DC738 /* FormulaModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F6D53B021D9FD39006DC738 /* FormulaModel.swift */; };
 		7F7B62DC2206E71E006E8C10 /* CalculateStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F7B62DB2206E71E006E8C10 /* CalculateStackView.swift */; };
 		7FB12A4121D59F2100005A88 /* FlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FB12A4021D59F2100005A88 /* FlowLayout.swift */; };
-		7FB12A4421D5CC0F00005A88 /* SettingsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FB12A4321D5CC0F00005A88 /* SettingsController.swift */; };
 		7FB12A4821D6033200005A88 /* TableView Delegate+Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FB12A4721D6033200005A88 /* TableView Delegate+Data.swift */; };
 		7FB4A25221D6D7D2006EBC5D /* FormulasCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FB4A25121D6D7D2006EBC5D /* FormulasCell.swift */; };
 		7FBBC71421D447B4002A35CE /* SearchController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FBBC71321D447B4002A35CE /* SearchController.swift */; };
@@ -48,7 +47,6 @@
 		7F6D53B021D9FD39006DC738 /* FormulaModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormulaModel.swift; sourceTree = "<group>"; };
 		7F7B62DB2206E71E006E8C10 /* CalculateStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculateStackView.swift; sourceTree = "<group>"; };
 		7FB12A4021D59F2100005A88 /* FlowLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlowLayout.swift; sourceTree = "<group>"; };
-		7FB12A4321D5CC0F00005A88 /* SettingsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsController.swift; sourceTree = "<group>"; };
 		7FB12A4721D6033200005A88 /* TableView Delegate+Data.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TableView Delegate+Data.swift"; sourceTree = "<group>"; };
 		7FB4A25121D6D7D2006EBC5D /* FormulasCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormulasCell.swift; sourceTree = "<group>"; };
 		7FBBC71321D447B4002A35CE /* SearchController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchController.swift; sourceTree = "<group>"; };
@@ -150,7 +148,6 @@
 				7FF8BE3D21BE026900321425 /* FavoritesController.swift */,
 				7FBBC71321D447B4002A35CE /* SearchController.swift */,
 				7FF1AF9A21DE72C200E38208 /* CalculateController.swift */,
-				7FB12A4321D5CC0F00005A88 /* SettingsController.swift */,
 				7F5279522252D9CC00178BFD /* OnboardingController.swift */,
 			);
 			path = Controller;
@@ -321,7 +318,6 @@
 				7FF1AF9B21DE72C200E38208 /* CalculateController.swift in Sources */,
 				7F0E7F7D221F6DEA0007B1B9 /* Color+Gradient.swift in Sources */,
 				7F6D53B121D9FD39006DC738 /* FormulaModel.swift in Sources */,
-				7FB12A4421D5CC0F00005A88 /* SettingsController.swift in Sources */,
 				7F7B62DC2206E71E006E8C10 /* CalculateStackView.swift in Sources */,
 				7FB4A25221D6D7D2006EBC5D /* FormulasCell.swift in Sources */,
 				7FB12A4821D6033200005A88 /* TableView Delegate+Data.swift in Sources */,

@@ -32,11 +32,6 @@ class FavoritesController: UICollectionViewController {
     self.present(searchController, animated: true, completion: nil)
   }
   
-  @objc func handleSettingsPush() {
-    let settingsController = UINavigationController.init(rootViewController: SettingsController())
-    self.present(settingsController, animated: true, completion: nil)
-  }
-  
   @objc func handleLongPress(gesture: UILongPressGestureRecognizer) {
     gesture.minimumPressDuration = 0.3
     let location = gesture.location(in: collectionView)
@@ -67,7 +62,6 @@ class FavoritesController: UICollectionViewController {
   
   fileprivate func setupNavigationItems() {
     navigationItem.title = "Favorites"
-    navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(named: "settings"), style: .plain, target: self, action: #selector(handleSettingsPush))
     navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(named: "search"), style: .plain, target: self, action: #selector(handleSearchPush))
     navigationItem.backBarButtonItem = UIBarButtonItem(title: nil, style: .plain, target: nil, action: nil)
   }
