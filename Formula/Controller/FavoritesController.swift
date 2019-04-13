@@ -12,18 +12,25 @@ class FavoritesController: UICollectionViewController {
   
   fileprivate let cellId = "cellId"
   var favoritedFormulas = UserDefaults.standard.savedFormulas()
+  let favoriteIsEmptyStackView = FavoritedisEmptyStackView()
   
   //MARK:- ViewController's Lifecycle
   override func viewDidLoad() {
     super.viewDidLoad()
     setupCollectionView()
     setupNavigationItems()
+    setupEmptyStackView()
   }
   
   override func viewWillAppear(_ animated: Bool) {
     super.viewWillAppear(true)
     favoritedFormulas = UserDefaults.standard.savedFormulas()
     collectionView.reloadData()
+    if favoritedFormulas.isEmpty {
+      favoriteIsEmptyStackView.alpha = 1
+    } else {
+      favoriteIsEmptyStackView.alpha = 0
+    }
   }
   
   //MARK:- Handle Functions
@@ -52,6 +59,16 @@ class FavoritesController: UICollectionViewController {
   }
   
   //MARK:- Setup Functions
+  fileprivate func setupEmptyStackView() {
+    let faceImageView = favoriteIsEmptyStackView.faceImageView
+    favoriteIsEmptyStackView.translatesAutoresizingMaskIntoConstraints = false
+    view.addSubview(favoriteIsEmptyStackView)
+    faceImageView.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.70).isActive = true
+    faceImageView.heightAnchor.constraint(equalTo: faceImageView.widthAnchor).isActive = true
+    favoriteIsEmptyStackView.centerXInSuperview()
+    favoriteIsEmptyStackView.centerYInSuperview()
+  }
+  
   fileprivate func setupCollectionView() {
     collectionView.backgroundColor = UIColor.greyFormula
     collectionView.register(SubjectsCell.self, forCellWithReuseIdentifier: cellId)
@@ -70,16 +87,16 @@ class FavoritesController: UICollectionViewController {
   override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
     let calculateController = CalculateController()
     let favoritedFormulaItem = favoritedFormulas[indexPath.item]
-    //FIXME: Hide Home Button and Save Image (assets or with json)
     calculateController.calculateStackView.formulaTitle.text = favoritedFormulaItem.title
     navigationController?.pushViewController(calculateController, animated: true)
   }
+  
   override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-    //        if favoritedFormulas.isEmpty {
-    //            collectionView.backgroundColor = .red
-    //        } else {
-    //            collectionView.backgroundColor = .green
-    //        }
+    if favoritedFormulas.isEmpty && favoriteIsEmptyStackView.alpha == 0 {
+      UIView.animate(withDuration: 0.58) {
+        self.favoriteIsEmptyStackView.alpha = 1
+      }
+    }
     return favoritedFormulas.count
   }
   

@@ -21,7 +21,7 @@ extension UIView {
     self.layer.shadowOffset = CGSize(width: 0, height: 3.5)
     self.layer.shadowOpacity = 0.05
   }
-  //FIXME: Aff Cgpath to shadow properly
+  
   func setTableCellShadow() {
     self.layer.masksToBounds = false
     self.layer.shadowPath = UIBezierPath(rect: self.bounds).cgPath
