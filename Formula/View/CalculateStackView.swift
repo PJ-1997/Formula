@@ -232,13 +232,13 @@ class CalculateStackView: UIStackView, UITextFieldDelegate {
       answerLabel.text = density
     case "Speed":
       let speed = speedFormula(speed: firstInput, distance: secondInput, time: thirdInput)
-      answerLabel.text = "\(speed)"
+      answerLabel.text = speed
     case "Momentum":
       let momentum = momentumFormula(momentum: firstInput, mass: secondInput, velocity: thirdInput)
-      answerLabel.text = "\(momentum)"
+      answerLabel.text = momentum
     case "Force":
       let force = forceFormula(force: firstInput, mass: secondInput, acceleration: thirdInput)
-      answerLabel.text = "\(force)"
+      answerLabel.text = force
     default:
       break
     }
@@ -310,83 +310,126 @@ class CalculateStackView: UIStackView, UITextFieldDelegate {
   //TODO:- Fix Science Formulas
   func densityFormula(density: Float?, mass: Float?, volume: Float?) -> String {
     var ans: Float!
-    if (mass != nil && volume != nil) {
+    if (density != nil && mass != nil && volume != nil) {
+      return "Leave one box empty"
+    } else if (mass != nil && volume != nil) {
+      if (mass! <= 0 || volume! <= 0) {
+        return "No real Solution"
+      }
       ans = mass! / volume!
       print("Density is Empty")
       return "D = \(ans!)"
     } else if (density != nil && volume != nil) {
+      if (density! <= 0 || volume! <= 0) {
+        return "No real Solution"
+      }
       ans = volume! * density!
       print("Mass is Empty")
       return "M = \(ans!)"
     } else if (mass != nil && density != nil) {
+      if (mass! <= 0 || density! <= 0) {
+        return "No real Solution"
+      }
       ans = mass! * density!
       print("Volume is Empty")
       return "V = \(ans!)"
-      
     } else if density == nil || mass == nil || volume == nil {
-      return "Fill two boxes"
-      
-    } else if density! <= 0 {
-      
-      return "No real solution"
-    } else {
-      return "shit"
+      return "Leave one box empty"
     }
-    
+    return "No real Solution"
   }
   
-  func speedFormula(speed: Float?, distance: Float?, time: Float?) -> Float {
+  func speedFormula(speed: Float?, distance: Float?, time: Float?) -> String {
     var ans: Float!
-    if (distance != nil && time != nil) {
+    if (speed != nil && distance != nil && time != nil) {
+      return "Leave one box empty"
+    } else if (distance != nil && time != nil) {
+      if (distance! <= 0 || time! <= 0) {
+        return "No real Solution"
+      }
       ans = distance! / time!
       print("Speed is Empty")
+      return "S = \(ans!)"
     } else if (speed != nil && time != nil) {
+      if (speed! <= 0 || time! <= 0) {
+        return "No real Solution"
+      }
       ans = time! * speed!
       print("Distance is Empty")
+      return "D = \(ans!)"
     } else if (distance != nil && speed != nil) {
+      if (distance! <= 0 || speed! <= 0) {
+        return "No real Solution"
+      }
       ans = distance! * speed!
       print("Time is Empty")
-    } else {
-      print("Something is wrong")
-      return 0
+      return "T = \(ans!)"
+    } else if speed == nil || distance == nil || time == nil {
+      return "Leave one box empty"
     }
-    return ans
+    return "No real Solution"
   }
   
-  func momentumFormula(momentum: Float?, mass: Float?, velocity: Float?) -> Float {
+  func momentumFormula(momentum: Float?, mass: Float?, velocity: Float?) -> String {
     var ans: Float!
-    if (mass != nil && velocity != nil) {
+    if (momentum != nil && mass != nil && velocity != nil) {
+      return "Leave one box empty"
+    } else if (mass != nil && velocity != nil) {
+      if (mass! <= 0 || velocity! <= 0) {
+        return "No real Solution"
+      }
       ans = mass! * velocity!
       print("Momentum is Empty")
+      return "Momentum = \(ans!)"
     } else if (momentum != nil && velocity != nil) {
+      if (momentum! <= 0 || velocity! <= 0) {
+        return "No real Solution"
+      }
       ans = momentum! / velocity!
       print("Mass is Empty")
+      return "Mass = \(ans!)"
     } else if (mass != nil && momentum != nil) {
+      if (mass! <= 0 || momentum! <= 0) {
+        return "No real Solution"
+      }
       ans = momentum! / mass!
       print("Velocity is Empty")
-    } else {
-      print("Something is wrong")
-      return 0
+      return "Velocity = \(ans!)"
+    } else if momentum == nil || mass == nil || velocity == nil {
+      return "Leave one box empty"
     }
-    return ans
+    return "No real Solution"
   }
   
-  func forceFormula(force: Float?, mass: Float?, acceleration: Float?) -> Float {
+  func forceFormula(force: Float?, mass: Float?, acceleration: Float?) -> String {
     var ans: Float!
-    if (mass != nil && acceleration != nil) {
+    if (force != nil && mass != nil && acceleration != nil) {
+      return "Leave one box empty"
+    } else if (mass != nil && acceleration != nil) {
+      if (mass! <= 0 || acceleration! <= 0) {
+        return "No real Solution"
+      }
       ans = mass! * acceleration!
       print("Force is Empty")
+      return "Force = \(ans!)"
     } else if (force != nil && acceleration != nil) {
+      if (force! <= 0 || acceleration! <= 0) {
+        return "No real Solution"
+      }
       ans = force! / acceleration!
       print("Mass is Empty")
+      return "Mass = \(ans!)"
     } else if (mass != nil && force != nil) {
+      if (mass! <= 0 || force! <= 0) {
+        return "No real Solution"
+      }
       ans = force! / mass!
       print("Acceleration is Empty")
-    } else {
-      print("Something is wrong")
-      return 0
+      return "Acceleration = \(ans!)"
+    } else if force == nil || mass == nil || acceleration == nil {
+      return "Leave one box empty"
     }
-    return ans
+    return "No real Solution"
   }
   
 }
