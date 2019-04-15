@@ -12,7 +12,8 @@ class SubjectsCell: UICollectionViewCell {
   
   var formula: FormulaModel! {
     didSet {
-      subjectLabel.text = formula.title
+      nameLabel.text = formula.title
+      subjectLabel.text = formula.type
     }
   }
   
@@ -24,7 +25,7 @@ class SubjectsCell: UICollectionViewCell {
     return imageView
   }()
   
-  let subjectLabel: UILabel = {
+  let nameLabel: UILabel = {
     let label = UILabel()
     label.text = "Subject Name"
     label.font = UIFont.systemFont(ofSize: 16, weight: .semibold)
@@ -32,9 +33,9 @@ class SubjectsCell: UICollectionViewCell {
     return label
   }()
   
-  let recentLabel: UILabel = {
+  let subjectLabel: UILabel = {
     let label = UILabel()
-    label.text = "Recently used: 2"
+    label.text = ""
     label.font = UIFont.systemFont(ofSize: 14)
     return label
   }()
@@ -52,7 +53,7 @@ class SubjectsCell: UICollectionViewCell {
   }
   
   fileprivate func setupViews() {
-    let stackView = UIStackView(arrangedSubviews: [subjectLabel, recentLabel])
+    let stackView = UIStackView(arrangedSubviews: [nameLabel, subjectLabel])
     stackView.axis = .vertical
     stackView.layoutMargins = UIEdgeInsets(top: 6, left: 8, bottom: 8, right: 0)
     stackView.isLayoutMarginsRelativeArrangement = true
@@ -65,7 +66,7 @@ class SubjectsCell: UICollectionViewCell {
     imageView.anchor(top: topAnchor, leading: stackView.leadingAnchor, bottom: stackView.topAnchor, trailing: stackView.trailingAnchor)
     imageView.heightAnchor.constraint(equalTo: imageView.widthAnchor).isActive = true
     stackView.anchor(top: imageView.bottomAnchor, leading: leadingAnchor, bottom: bottomAnchor, trailing: trailingAnchor)
-    recentLabel.heightAnchor.constraint(equalToConstant: 20).isActive = true
+    subjectLabel.heightAnchor.constraint(equalToConstant: 20).isActive = true
   }
   
   required init?(coder aDecoder: NSCoder) {

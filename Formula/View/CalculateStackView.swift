@@ -190,7 +190,6 @@ class CalculateStackView: UIStackView, UITextFieldDelegate {
     } else {
       firstInput = numFloat
     }
-    
   }
   
   @objc func handleMiddleTextField(sender: UITextField) {
@@ -200,7 +199,6 @@ class CalculateStackView: UIStackView, UITextFieldDelegate {
     } else {
       secondInput = numFloat
     }
-    
   }
   
   @objc func handleRightTextField(sender: UITextField) {

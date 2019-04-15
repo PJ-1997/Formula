@@ -101,7 +101,6 @@ class Formulas {
   }
   
   //Science
-  //TODO:- Fix Science Formulas
   func densityFormula(density: Float?, mass: Float?, volume: Float?) -> String {
     var ans: Float!
     if (density != nil && mass != nil && volume != nil) {
