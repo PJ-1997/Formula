@@ -28,7 +28,11 @@ class SubjectsCell: UICollectionViewCell {
   let nameLabel: UILabel = {
     let label = UILabel()
     label.text = "Subject Name"
-    label.font = UIFont.systemFont(ofSize: 16, weight: .semibold)
+    if UIDevice.current.screenType == .iPhone_XSMax || UIDevice.current.screenType == .iPhones_6Plus_6sPlus_7Plus_8Plus {
+      label.font = UIFont.systemFont(ofSize: 17, weight: .semibold)
+    } else {
+      label.font = UIFont.systemFont(ofSize: 16, weight: .semibold)
+    }
     label.translatesAutoresizingMaskIntoConstraints = false
     return label
   }()
@@ -36,7 +40,11 @@ class SubjectsCell: UICollectionViewCell {
   let subjectLabel: UILabel = {
     let label = UILabel()
     label.text = ""
-    label.font = UIFont.systemFont(ofSize: 14)
+    if UIDevice.current.screenType == .iPhone_XSMax || UIDevice.current.screenType == .iPhones_6Plus_6sPlus_7Plus_8Plus {
+      label.font = UIFont.systemFont(ofSize: 15)
+    } else {
+      label.font = UIFont.systemFont(ofSize: 14)
+    }
     return label
   }()
   
@@ -55,7 +63,7 @@ class SubjectsCell: UICollectionViewCell {
   fileprivate func setupViews() {
     let stackView = UIStackView(arrangedSubviews: [nameLabel, subjectLabel])
     stackView.axis = .vertical
-    stackView.layoutMargins = UIEdgeInsets(top: 6, left: 8, bottom: 8, right: 0)
+    stackView.layoutMargins = UIEdgeInsets(top: 4, left: 8, bottom: 8, right: 0)
     stackView.isLayoutMarginsRelativeArrangement = true
     
     //Enables auto layout
@@ -66,7 +74,7 @@ class SubjectsCell: UICollectionViewCell {
     imageView.anchor(top: topAnchor, leading: stackView.leadingAnchor, bottom: stackView.topAnchor, trailing: stackView.trailingAnchor)
     imageView.heightAnchor.constraint(equalTo: imageView.widthAnchor).isActive = true
     stackView.anchor(top: imageView.bottomAnchor, leading: leadingAnchor, bottom: bottomAnchor, trailing: trailingAnchor)
-    subjectLabel.heightAnchor.constraint(equalToConstant: 20).isActive = true
+    subjectLabel.heightAnchor.constraint(equalToConstant: 15).isActive = true
   }
   
   required init?(coder aDecoder: NSCoder) {

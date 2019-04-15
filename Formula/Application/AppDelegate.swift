@@ -38,19 +38,26 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
   fileprivate func setupAppearance() {
     //Different Controllers
     //    window?.rootViewController = UINavigationController(rootViewController: favoriteController)
-    //    window?.rootViewController = UINavigationController(rootViewController: SearchController())
+//        window?.rootViewController = UINavigationController(rootViewController: SearchController())
     //    window?.rootViewController = UINavigationController(rootViewController: CalculateController())
     
     //Apperence
     let navigationBarAppearace = UINavigationBar.appearance()
+    var font: UIFont!
     navigationBarAppearace.barTintColor = UIColor.blueFormula
     navigationBarAppearace.tintColor = .white
     
+    if UIDevice.current.screenType == .iPhone_XSMax || UIDevice.current.screenType == .iPhones_6Plus_6sPlus_7Plus_8Plus {
+      font = Theme.fonts.fontFormulaBold(size: 23)
+    } else {
+      font = Theme.fonts.fontFormulaBold(size: 20)
+    }
+    
     let attributes  = [
       NSAttributedString.Key.foregroundColor: UIColor.white,
-      NSAttributedString.Key.font: Theme.fonts.fontFormulaBold(size: 20)
+      NSAttributedString.Key.font: font
     ]
-    UINavigationBar.appearance().titleTextAttributes = attributes
+    UINavigationBar.appearance().titleTextAttributes = attributes as [NSAttributedString.Key : Any]
   }
   
 }

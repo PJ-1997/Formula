@@ -24,9 +24,14 @@ class FormulasCell: UITableViewCell {
   }()
   
   let formulaName: UILabel = {
-    let label = UILabel()
+    var label = UILabel()
     label.text = "Formula Name"
-    label.font = UIFont.boldSystemFont(ofSize: 16)
+//    label.font = UIFont.boldSystemFont(ofSize: 16)
+    if UIDevice.current.screenType == .iPhone_XSMax || UIDevice.current.screenType == .iPhones_6Plus_6sPlus_7Plus_8Plus {
+      label.font = UIFont.boldSystemFont(ofSize: 18)
+    } else {
+      label.font = UIFont.boldSystemFont(ofSize: 16)
+    }
     label.textColor = UIColor.darkGray
     label.translatesAutoresizingMaskIntoConstraints = false
     return label
@@ -67,15 +72,21 @@ class FormulasCell: UITableViewCell {
     
     cellView.anchor(top: topAnchor, leading: leadingAnchor, bottom: bottomAnchor, trailing: trailingAnchor, padding: .init(top: 4, left: 8, bottom: 4, right: 8))
     
-    subjectImageView.anchor(top: nil, leading: cellView.leadingAnchor, bottom: nil, trailing: nil, padding: .init(top: 0, left: 8, bottom: 0, right: 8), size: .init(width: 40, height: 40))
+    subjectImageView.anchor(top: nil, leading: cellView.leadingAnchor, bottom: nil, trailing: nil, padding: .init(top: 0, left: 8, bottom: 0, right: 8))
+    subjectImageView.heightAnchor.constraint(equalTo: cellView.heightAnchor, multiplier: 0.75).isActive = true
+    subjectImageView.widthAnchor.constraint(equalTo: subjectImageView.heightAnchor).isActive = true
     subjectImageView.centerYAnchor.constraint(equalTo: cellView.centerYAnchor).isActive = true
     
+    buttonStar.anchor(top: nil, leading: nil, bottom: nil, trailing: cellView.trailingAnchor, padding: .init(top: 0, left: 0, bottom: 0, right: 10))
+    buttonStar.heightAnchor.constraint(equalTo: cellView.heightAnchor, multiplier: 0.60).isActive = true
+    buttonStar.widthAnchor.constraint(equalTo: buttonStar.heightAnchor).isActive = true
+    buttonStar.centerYAnchor.constraint(equalTo: formulaName.centerYAnchor).isActive = true
+    
+    //TODO: Fix Formula name for bigger screens
     formulaName.anchor(top: nil, leading: subjectImageView.trailingAnchor, bottom: nil, trailing: buttonStar.leadingAnchor, padding: .init(top: 0, left: 20, bottom: 0, right: 20))
     formulaName.centerYAnchor.constraint(equalTo: subjectImageView.centerYAnchor).isActive = true
     formulaName.heightAnchor.constraint(equalToConstant: 40)
     
-    buttonStar.anchor(top: nil, leading: nil, bottom: nil, trailing: cellView.trailingAnchor, padding: .init(top: 0, left: 0, bottom: 0, right: 10), size: .init(width: 30, height: 30))
-    buttonStar.centerYAnchor.constraint(equalTo: formulaName.centerYAnchor).isActive = true
   }
   
   @objc func handleFavoritedStar(sender: UIButton) {
