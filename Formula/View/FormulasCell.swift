@@ -26,9 +26,10 @@ class FormulasCell: UITableViewCell {
   let formulaName: UILabel = {
     var label = UILabel()
     label.text = "Formula Name"
-//    label.font = UIFont.boldSystemFont(ofSize: 16)
     if UIDevice.current.screenType == .iPhone_XSMax || UIDevice.current.screenType == .iPhones_6Plus_6sPlus_7Plus_8Plus {
       label.font = UIFont.boldSystemFont(ofSize: 18)
+    } else if UIDevice.current.screenType == .iPhones_5_5s_5c_SE {
+      label.font = UIFont.systemFont(ofSize: 15, weight: .semibold)
     } else {
       label.font = UIFont.boldSystemFont(ofSize: 16)
     }
@@ -82,7 +83,6 @@ class FormulasCell: UITableViewCell {
     buttonStar.widthAnchor.constraint(equalTo: buttonStar.heightAnchor).isActive = true
     buttonStar.centerYAnchor.constraint(equalTo: formulaName.centerYAnchor).isActive = true
     
-    //TODO: Fix Formula name for bigger screens
     formulaName.anchor(top: nil, leading: subjectImageView.trailingAnchor, bottom: nil, trailing: buttonStar.leadingAnchor, padding: .init(top: 0, left: 20, bottom: 0, right: 20))
     formulaName.centerYAnchor.constraint(equalTo: subjectImageView.centerYAnchor).isActive = true
     formulaName.heightAnchor.constraint(equalToConstant: 40)

@@ -39,7 +39,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     //Different Controllers
     //    window?.rootViewController = UINavigationController(rootViewController: favoriteController)
 //        window?.rootViewController = UINavigationController(rootViewController: SearchController())
-    //    window?.rootViewController = UINavigationController(rootViewController: CalculateController())
+//        window?.rootViewController = UINavigationController(rootViewController: CalculateController())
     
     //Apperence
     let navigationBarAppearace = UINavigationBar.appearance()
@@ -49,6 +49,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     if UIDevice.current.screenType == .iPhone_XSMax || UIDevice.current.screenType == .iPhones_6Plus_6sPlus_7Plus_8Plus {
       font = Theme.fonts.fontFormulaBold(size: 23)
+    } else if UIDevice.current.screenType == .iPhones_5_5s_5c_SE {
+      font = Theme.fonts.fontFormulaBold(size: 18)
     } else {
       font = Theme.fonts.fontFormulaBold(size: 20)
     }

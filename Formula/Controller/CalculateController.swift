@@ -7,7 +7,7 @@
 //
 
 import UIKit
-//TODO: 2 Add traits for iphone 6 and iphone max
+
 class CalculateController: UIViewController {
   
   let calculateStackView = CalculateStackView()
@@ -68,8 +68,11 @@ class CalculateController: UIViewController {
   func setupNavigation() {
     navigationItem.title = "Calculate"
     view.backgroundColor = UIColor.greyFormula
+    calculateStackView.translatesAutoresizingMaskIntoConstraints = false
     view.addSubview(calculateStackView)
-    calculateStackView.anchor(top: view.safeAreaLayoutGuide.topAnchor, leading: view.safeAreaLayoutGuide.leadingAnchor, bottom: view.safeAreaLayoutGuide.bottomAnchor, trailing: view.safeAreaLayoutGuide.trailingAnchor)
+    calculateStackView.anchor(top: view.safeAreaLayoutGuide.topAnchor, leading: nil, bottom: view.safeAreaLayoutGuide.bottomAnchor, trailing: nil)
+    calculateStackView.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.90).isActive = true
+    calculateStackView.centerXInSuperview()
   }
 
 }

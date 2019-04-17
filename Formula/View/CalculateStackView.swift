@@ -23,6 +23,13 @@ class CalculateStackView: UIStackView, UITextFieldDelegate {
   var formulaTitle: UILabel = {
     let label = UILabel()
     label.font = Theme.fonts.fontFormulaBold(size: 28)
+    if UIDevice.current.screenType == .iPhone_XSMax || UIDevice.current.screenType == .iPhones_6Plus_6sPlus_7Plus_8Plus {
+      label.font = Theme.fonts.fontFormulaBold(size: 32)
+    } else if UIDevice.current.screenType == .iPhones_5_5s_5c_SE {
+      label.font = Theme.fonts.fontFormulaBold(size: 25)
+    } else {
+      label.font = Theme.fonts.fontFormulaBold(size: 28)
+    }
     label.text = "Formula Title"
     label.textAlignment = .center
     label.translatesAutoresizingMaskIntoConstraints = false
@@ -31,7 +38,7 @@ class CalculateStackView: UIStackView, UITextFieldDelegate {
   
   var formulaImage: UIImageView = {
     let imageView = UIImageView()
-    imageView.image = #imageLiteral(resourceName: "MC")
+    imageView.image = #imageLiteral(resourceName: "SquareRoot")
     imageView.contentMode = .center
     imageView.translatesAutoresizingMaskIntoConstraints = false
     return imageView
@@ -78,7 +85,14 @@ class CalculateStackView: UIStackView, UITextFieldDelegate {
     let label = UILabel()
     label.text = "Answer PlaceHolder"
     label.textAlignment = .center
-    label.font = UIFont.systemFont(ofSize: 22, weight: .semibold)
+    
+    if UIDevice.current.screenType == .iPhone_XSMax || UIDevice.current.screenType == .iPhones_6Plus_6sPlus_7Plus_8Plus {
+      label.font = UIFont.systemFont(ofSize: 24, weight: .semibold)
+    } else if UIDevice.current.screenType == .iPhones_5_5s_5c_SE {
+      label.font = UIFont.systemFont(ofSize: 20, weight: .semibold)
+    } else {
+      label.font = UIFont.systemFont(ofSize: 22, weight: .semibold)
+    }
     label.translatesAutoresizingMaskIntoConstraints = false
     return label
   }()
@@ -133,19 +147,19 @@ class CalculateStackView: UIStackView, UITextFieldDelegate {
   
   //MARK:- Setup Functions
   func setupStackViews() {
-    //MARK: Top StackVie
+    //MARK: Top StackView
     topStackView.addArrangedSubview(formulaTitle)
     topStackView.addArrangedSubview(formulaImage)
     topStackView.axis = .vertical
-    topStackView.spacing = 8
+    topStackView.spacing = 20
     topStackView.isLayoutMarginsRelativeArrangement = true
-    
-    //Enables auto layout
     topStackView.translatesAutoresizingMaskIntoConstraints = false
     addSubview(topStackView)
-    
     topStackView.anchor(top: safeAreaLayoutGuide.topAnchor, leading: safeAreaLayoutGuide.leadingAnchor, bottom: nil, trailing: safeAreaLayoutGuide.trailingAnchor, padding: .init(top: 8, left: 8, bottom: 0, right: 8))
-    formulaImage.heightAnchor.constraint(equalToConstant: 100).isActive = true
+//    formulaImage.heightAnchor.constraint(equalToConstant: 100).isActive = true
+    formulaImage.heightAnchor.constraint(equalTo: self.widthAnchor, multiplier: 0.18).isActive = true
+    
+    
     
     //MARK: Middle StackView
     middleStackView.addArrangedSubview(lefttextField)
@@ -154,27 +168,29 @@ class CalculateStackView: UIStackView, UITextFieldDelegate {
     middleStackView.distribution = .fillEqually
     middleStackView.spacing = 8
     middleStackView.isLayoutMarginsRelativeArrangement = true
-    
-    //Enables auto layout
     middleStackView.translatesAutoresizingMaskIntoConstraints = false
     addSubview(middleStackView)
-    
-    middleStackView.anchor(top: topStackView.bottomAnchor, leading: safeAreaLayoutGuide.leadingAnchor, bottom: nil, trailing: safeAreaLayoutGuide.trailingAnchor, padding: .init(top: 20, left: 8, bottom: 0, right: 8))
+    middleStackView.anchor(top: topStackView.bottomAnchor, leading: safeAreaLayoutGuide.leadingAnchor, bottom: nil, trailing: safeAreaLayoutGuide.trailingAnchor, padding: .init(top: 40, left: 8, bottom: 0, right: 8))
     middleStackView.heightAnchor.constraint(equalToConstant: 50).isActive = true
     
     //MARK: Bottom StackView
+    var topPadding: CGFloat!
+    if UIDevice.current.screenType == .iPhone_XSMax || UIDevice.current.screenType == .iPhones_6Plus_6sPlus_7Plus_8Plus {
+      topPadding = 80
+    } else if UIDevice.current.screenType == .iPhones_5_5s_5c_SE {
+      topPadding = 25
+    } else {
+      topPadding = 50
+    }
     bottomStackView.addArrangedSubview(calculateButton)
     bottomStackView.addArrangedSubview(answerLabel)
     bottomStackView.axis = .vertical
     bottomStackView.distribution = .fillEqually
     bottomStackView.spacing = 8
     bottomStackView.isLayoutMarginsRelativeArrangement = true
-    
-    //Enables auto layout
     bottomStackView.translatesAutoresizingMaskIntoConstraints = false
     addSubview(bottomStackView)
-    
-    bottomStackView.anchor(top: middleStackView.bottomAnchor, leading: safeAreaLayoutGuide.leadingAnchor, bottom: nil, trailing: safeAreaLayoutGuide.trailingAnchor, padding: .init(top: 50, left: 8, bottom: 0, right: 8))
+    bottomStackView.anchor(top: middleStackView.bottomAnchor, leading: safeAreaLayoutGuide.leadingAnchor, bottom: nil, trailing: safeAreaLayoutGuide.trailingAnchor, padding: .init(top: topPadding, left: 8, bottom: 0, right: 8))
     bottomStackView.heightAnchor.constraint(equalToConstant: 100).isActive = true
   }
   

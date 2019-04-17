@@ -30,10 +30,13 @@ class SubjectsCell: UICollectionViewCell {
     label.text = "Subject Name"
     if UIDevice.current.screenType == .iPhone_XSMax || UIDevice.current.screenType == .iPhones_6Plus_6sPlus_7Plus_8Plus {
       label.font = UIFont.systemFont(ofSize: 17, weight: .semibold)
+    } else if UIDevice.current.screenType == .iPhones_5_5s_5c_SE {
+      label.font = UIFont.systemFont(ofSize: 14, weight: .semibold)
     } else {
       label.font = UIFont.systemFont(ofSize: 16, weight: .semibold)
     }
     label.translatesAutoresizingMaskIntoConstraints = false
+    label.adjustsFontSizeToFitWidth = true
     return label
   }()
   
@@ -42,6 +45,8 @@ class SubjectsCell: UICollectionViewCell {
     label.text = ""
     if UIDevice.current.screenType == .iPhone_XSMax || UIDevice.current.screenType == .iPhones_6Plus_6sPlus_7Plus_8Plus {
       label.font = UIFont.systemFont(ofSize: 15)
+    } else if UIDevice.current.screenType == .iPhones_5_5s_5c_SE {
+      label.font = UIFont.systemFont(ofSize: 13)
     } else {
       label.font = UIFont.systemFont(ofSize: 14)
     }
@@ -63,7 +68,7 @@ class SubjectsCell: UICollectionViewCell {
   fileprivate func setupViews() {
     let stackView = UIStackView(arrangedSubviews: [nameLabel, subjectLabel])
     stackView.axis = .vertical
-    stackView.layoutMargins = UIEdgeInsets(top: 4, left: 8, bottom: 8, right: 0)
+    stackView.layoutMargins = UIEdgeInsets(top: 4, left: 8, bottom: 8, right: 8)
     stackView.isLayoutMarginsRelativeArrangement = true
     
     //Enables auto layout

@@ -44,6 +44,8 @@ extension UISegmentedControl {
     self.selectedSegmentIndex = 0
     if UIDevice.current.screenType == .iPhone_XSMax || UIDevice.current.screenType == .iPhones_6Plus_6sPlus_7Plus_8Plus {
       self.setTitleTextAttributes([NSAttributedString.Key.font: Theme.fonts.fontFormulaBold(size: 15) as Any], for: .normal)
+    } else if UIDevice.current.screenType == .iPhones_5_5s_5c_SE {
+      self.setTitleTextAttributes([NSAttributedString.Key.font: Theme.fonts.fontFormulaBold(size: 13) as Any], for: .normal)
     } else {
       self.setTitleTextAttributes([NSAttributedString.Key.font: Theme.fonts.fontFormulaBold(size: 14) as Any], for: .normal)
     }
