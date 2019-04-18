@@ -103,7 +103,7 @@ extension UIImageView {
     self.init(image: nil)
     var padding: CGFloat!
     if UIDevice.current.screenType == .iPhone_XSMax || UIDevice.current.screenType == .iPhones_6Plus_6sPlus_7Plus_8Plus {
-      padding = -22
+      padding = -21
     } else if UIDevice.current.screenType == .iPhones_5_5s_5c_SE {
       padding = -8
     } else if UIDevice.current.screenType == .iPhones_X_XS {

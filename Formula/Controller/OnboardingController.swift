@@ -76,9 +76,6 @@ class OnboardingController: UIViewController {
     super.viewDidLoad()
     view.backgroundColor = .white
     setupStackView()
-    if traitCollection.verticalSizeClass == .regular {
-      
-    }
   }
   
   //MARK:- Handle Functions
