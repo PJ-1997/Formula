@@ -11,14 +11,12 @@ import UIKit
 class FormulaModel: NSObject, NSCoding {
   
   func encode(with aCoder: NSCoder) {
-    //        print("Trying to transform Formula into Data")
     aCoder.encode(title, forKey: "titleKey")
     aCoder.encode(type, forKey: "typeKey")
     aCoder.encode(isFavorited, forKey: "isFavKey")
   }
   
   required init?(coder aDecoder: NSCoder) {
-    //        print("Trying to turn Data into FormulaModel Object")
     title = aDecoder.decodeObject(forKey: "titleKey") as! String
     type = aDecoder.decodeObject(forKey: "typeKey") as! String
     isFavorited = aDecoder.decodeBool(forKey: "isFavKey")

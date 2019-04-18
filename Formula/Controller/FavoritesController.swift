@@ -102,7 +102,7 @@ class FavoritesController: UICollectionViewController {
   
   override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
     let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath) as! SubjectsCell
-    cell.formula = self.favoritedFormulas[indexPath.item]
+    cell.formula = favoritedFormulas[indexPath.item]
     return cell
   }
   
