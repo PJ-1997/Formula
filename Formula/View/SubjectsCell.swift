@@ -14,15 +14,29 @@ class SubjectsCell: UICollectionViewCell {
     didSet {
       nameLabel.text = formula.title
       subjectLabel.text = formula.type
+      if subjectLabel.text == "Math" {
+        subjectImageView.image = #imageLiteral(resourceName: "MathIcon")
+        backgroundColorView.backgroundColor = UIColor.cellBlue
+      } else {
+        subjectImageView.image = #imageLiteral(resourceName: "SciencIcon")
+        backgroundColorView.backgroundColor = UIColor.cellGreen
+      }
     }
   }
   
-  let imageView: UIImageView = {
-    let imageView = UIImageView(image: #imageLiteral(resourceName: "Geo"))
-    imageView.clipsToBounds = true
-    imageView.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
-    imageView.layer.cornerRadius = 15
+  let subjectImageView: UIImageView = {
+    let imageView = UIImageView()
+    imageView.translatesAutoresizingMaskIntoConstraints = false
+    imageView.contentMode = .scaleAspectFit
     return imageView
+  }()
+  
+  let backgroundColorView: UIView = {
+    let view = UIView()
+    view.clipsToBounds = true
+    view.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
+    view.layer.cornerRadius = 15
+    return view
   }()
   
   let nameLabel: UILabel = {
@@ -77,12 +91,19 @@ class SubjectsCell: UICollectionViewCell {
     
     //Enables auto layout
     labelStackView.translatesAutoresizingMaskIntoConstraints = false
-    [imageView, labelStackView].forEach({addSubview($0)})
+    backgroundColorView.translatesAutoresizingMaskIntoConstraints = false
+    backgroundColorView.addSubview(subjectImageView)
+    [backgroundColorView, labelStackView].forEach({addSubview($0)})
     
-    imageView.anchor(top: topAnchor, leading: labelStackView.leadingAnchor, bottom: labelStackView.topAnchor, trailing: labelStackView.trailingAnchor)
-    imageView.heightAnchor.constraint(equalTo: imageView.widthAnchor).isActive = true
-    labelStackView.anchor(top: imageView.bottomAnchor, leading: leadingAnchor, bottom: nil, trailing: trailingAnchor)
-    labelStackView.heightAnchor.constraint(equalTo: imageView.heightAnchor, multiplier: 0.30).isActive = true
+    backgroundColorView.anchor(top: topAnchor, leading: labelStackView.leadingAnchor, bottom: labelStackView.topAnchor, trailing: labelStackView.trailingAnchor)
+    backgroundColorView.heightAnchor.constraint(equalTo: backgroundColorView.widthAnchor).isActive = true
+    labelStackView.anchor(top: backgroundColorView.bottomAnchor, leading: leadingAnchor, bottom: nil, trailing: trailingAnchor)
+    labelStackView.heightAnchor.constraint(equalTo: backgroundColorView.heightAnchor, multiplier: 0.30).isActive = true
+    
+    subjectImageView.centerXAnchor.constraint(equalTo: backgroundColorView.centerXAnchor).isActive = true
+    subjectImageView.centerYAnchor.constraint(equalTo: backgroundColorView.centerYAnchor).isActive = true
+    subjectImageView.widthAnchor.constraint(equalTo: backgroundColorView.widthAnchor, multiplier: 0.70).isActive = true
+
     nameLabel.heightAnchor.constraint(equalToConstant: 25).isActive = true
   }
   

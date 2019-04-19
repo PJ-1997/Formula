@@ -12,7 +12,7 @@ class FavoritesController: UICollectionViewController {
   
   fileprivate let cellId = "cellId"
   var favoritedFormulas = UserDefaults.standard.savedFormulas()
-  let favoriteIsEmptyStackView = FavoritedisEmptyStackView()
+  let favoriteIsEmptyStackView = FavoritedIsEmptyStackView()
   
   //MARK:- ViewController's Lifecycle
   override func viewDidLoad() {

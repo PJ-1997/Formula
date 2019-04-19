@@ -26,4 +26,7 @@ extension UIColor {
   
   static let gradientDarkBlue = UIColor.rgb(red: 84, green: 114, blue: 255)
   static let gradientLightBlue = UIColor.rgb(red: 58, green: 192, blue: 255)
+  
+  static let cellGreen = UIColor.rgb(red: 78, green: 241, blue: 87)
+  static let cellBlue = UIColor.rgb(red: 96, green: 202, blue: 235)
 }
