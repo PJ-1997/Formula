@@ -89,7 +89,6 @@ class OnboardingController: UIViewController {
     searchStackView.spacing = 8
     searchImage.widthAnchor.constraint(equalTo: searchImage.heightAnchor).isActive = true
 
-    
     //Favorite
     let favoriteStackView = UIStackView(arrangedSubviews: [favoriteImage, favoriteInfo])
     favoriteStackView.spacing = 8

@@ -67,9 +67,7 @@ class FormulasCell: UITableViewCell {
   fileprivate func setup() {
     backgroundColor = UIColor.greyFormula
     addSubview(cellView)
-    cellView.addSubview(subjectImageView)
-    cellView.addSubview(formulaName)
-    cellView.addSubview(buttonStar)
+    [subjectImageView, formulaName, buttonStar].forEach({cellView.addSubview($0)})
     
     cellView.anchor(top: topAnchor, leading: leadingAnchor, bottom: bottomAnchor, trailing: trailingAnchor, padding: .init(top: 4, left: 8, bottom: 4, right: 8))
     

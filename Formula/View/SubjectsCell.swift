@@ -66,20 +66,24 @@ class SubjectsCell: UICollectionViewCell {
   }
   
   fileprivate func setupViews() {
-    let stackView = UIStackView(arrangedSubviews: [nameLabel, subjectLabel])
-    stackView.axis = .vertical
-    stackView.layoutMargins = UIEdgeInsets(top: 4, left: 8, bottom: 8, right: 8)
-    stackView.isLayoutMarginsRelativeArrangement = true
+    let labelStackView = UIStackView(arrangedSubviews: [nameLabel, subjectLabel])
+    labelStackView.axis = .vertical
+    if UIDevice.current.screenType == .iPhones_5_5s_5c_SE {
+      labelStackView.layoutMargins = UIEdgeInsets(top: 2, left: 8, bottom: 2, right: 8)
+    } else {
+      labelStackView.layoutMargins = UIEdgeInsets(top: 2, left: 8, bottom: 12, right: 8)
+    }
+    labelStackView.isLayoutMarginsRelativeArrangement = true
     
     //Enables auto layout
-    stackView.translatesAutoresizingMaskIntoConstraints = false
-    addSubview(imageView)
-    addSubview(stackView)
+    labelStackView.translatesAutoresizingMaskIntoConstraints = false
+    [imageView, labelStackView].forEach({addSubview($0)})
     
-    imageView.anchor(top: topAnchor, leading: stackView.leadingAnchor, bottom: stackView.topAnchor, trailing: stackView.trailingAnchor)
+    imageView.anchor(top: topAnchor, leading: labelStackView.leadingAnchor, bottom: labelStackView.topAnchor, trailing: labelStackView.trailingAnchor)
     imageView.heightAnchor.constraint(equalTo: imageView.widthAnchor).isActive = true
-    stackView.anchor(top: imageView.bottomAnchor, leading: leadingAnchor, bottom: bottomAnchor, trailing: trailingAnchor)
-    subjectLabel.heightAnchor.constraint(equalToConstant: 15).isActive = true
+    labelStackView.anchor(top: imageView.bottomAnchor, leading: leadingAnchor, bottom: nil, trailing: trailingAnchor)
+    labelStackView.heightAnchor.constraint(equalTo: imageView.heightAnchor, multiplier: 0.30).isActive = true
+    nameLabel.heightAnchor.constraint(equalToConstant: 25).isActive = true
   }
   
   required init?(coder aDecoder: NSCoder) {
