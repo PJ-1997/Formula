@@ -116,21 +116,22 @@ extension UILabel {
 extension UIImageView {
   convenience init(image: UIImage, insets: CGFloat?) {
     self.init(image: nil)
-    var padding: CGFloat!
-    if UIDevice.current.screenType == .iPhone_XSMax || UIDevice.current.screenType == .iPhones_6Plus_6sPlus_7Plus_8Plus {
-      padding = -21
-    } else if UIDevice.current.screenType == .iPhones_5_5s_5c_SE {
-      padding = -8
-    } else if UIDevice.current.screenType == .iPhones_X_XS {
-      padding = -18
-    } else if UIDevice.current.screenType == .iPhone_XR {
-      padding = -20
-    }
-    else {
-      padding = -12
-    }
-    let insets: CGFloat = padding
-    self.image = image.withAlignmentRectInsets(UIEdgeInsets(top: insets, left: insets, bottom: insets, right: insets))
+//    var padding: CGFloat!
+//    if UIDevice.current.screenType == .iPhone_XSMax || UIDevice.current.screenType == .iPhones_6Plus_6sPlus_7Plus_8Plus {
+//      padding = -21
+//    } else if UIDevice.current.screenType == .iPhones_5_5s_5c_SE {
+//      padding = -8
+//    } else if UIDevice.current.screenType == .iPhones_X_XS {
+//      padding = -18
+//    } else if UIDevice.current.screenType == .iPhone_XR {
+//      padding = -20
+//    }
+//    else {
+//      padding = -12
+//    }
+//    let insets: CGFloat = padding
+//    self.image = image.withAlignmentRectInsets(UIEdgeInsets(top: insets, left: insets, bottom: insets, right: insets))
+    self.image = image
     self.translatesAutoresizingMaskIntoConstraints = false
   }
 }
