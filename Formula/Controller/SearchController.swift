@@ -60,7 +60,7 @@ class SearchController: UIViewController {
   fileprivate func setupSegmentedController(_ segmentedController: UISegmentedControl) {
     view.addSubview(segmentedController)
     segmentedController.anchor(top: view.safeAreaLayoutGuide.topAnchor, leading: view.safeAreaLayoutGuide.leadingAnchor, bottom: nil, trailing: view.safeAreaLayoutGuide.trailingAnchor , padding: .init(top: 10, left: 10, bottom: 0, right: 10))
-    segmentedController.heightAnchor.constraint(equalToConstant: 30).isActive = true
+    segmentedController.heightAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.08).isActive = true
   }
   
   //MARK:- Handle Functions
