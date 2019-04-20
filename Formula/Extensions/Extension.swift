@@ -98,41 +98,17 @@ extension UILabel {
     self.init(frame: .zero)
     self.text = text
     if UIDevice.current.screenType == .iPhone_XSMax || UIDevice.current.screenType == .iPhones_6Plus_6sPlus_7Plus_8Plus {
-      self.font = UIFont.systemFont(ofSize: 20)
+      self.font = UIFont.systemFont(ofSize: 22)
     } else if UIDevice.current.screenType == .iPhones_5_5s_5c_SE {
       self.font = UIFont.systemFont(ofSize: 14)
-    } else if UIDevice.current.screenType == .iPhone_XR {
-      self.font = UIFont.systemFont(ofSize: 20)
+    } else if UIDevice.current.screenType == .iPhone_XR || UIDevice.current.screenType == .iPhones_X_XS {
+      self.font = UIFont.systemFont(ofSize: 19)
     } else {
       self.font = UIFont.systemFont(ofSize: 17)
     }
     self.numberOfLines = 0
     self.minimumScaleFactor = 0.5
     self.adjustsFontSizeToFitWidth = true
-  }
-}
-
-//MARK:- UIImageView
-extension UIImageView {
-  convenience init(image: UIImage, insets: CGFloat?) {
-    self.init(image: nil)
-//    var padding: CGFloat!
-//    if UIDevice.current.screenType == .iPhone_XSMax || UIDevice.current.screenType == .iPhones_6Plus_6sPlus_7Plus_8Plus {
-//      padding = -21
-//    } else if UIDevice.current.screenType == .iPhones_5_5s_5c_SE {
-//      padding = -8
-//    } else if UIDevice.current.screenType == .iPhones_X_XS {
-//      padding = -18
-//    } else if UIDevice.current.screenType == .iPhone_XR {
-//      padding = -20
-//    }
-//    else {
-//      padding = -12
-//    }
-//    let insets: CGFloat = padding
-//    self.image = image.withAlignmentRectInsets(UIEdgeInsets(top: insets, left: insets, bottom: insets, right: insets))
-    self.image = image
-    self.translatesAutoresizingMaskIntoConstraints = false
   }
 }
 
