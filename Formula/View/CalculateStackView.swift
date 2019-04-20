@@ -123,7 +123,6 @@ class CalculateStackView: UIStackView, UITextFieldDelegate {
       lefttextField.placeholder = "B"
       middleTextField.placeholder = "H"
       
-      
     case "Density":
       lefttextField.placeholder = "Density"
       middleTextField.placeholder = "Mass"
@@ -148,18 +147,14 @@ class CalculateStackView: UIStackView, UITextFieldDelegate {
   //MARK:- Setup Functions
   func setupStackViews() {
     //MARK: Top StackView
-    topStackView.addArrangedSubview(formulaTitle)
-    topStackView.addArrangedSubview(formulaImage)
+    [formulaTitle, formulaImage].forEach({topStackView.addArrangedSubview($0)})
     topStackView.axis = .vertical
     topStackView.spacing = 20
     topStackView.isLayoutMarginsRelativeArrangement = true
     topStackView.translatesAutoresizingMaskIntoConstraints = false
     addSubview(topStackView)
     topStackView.anchor(top: safeAreaLayoutGuide.topAnchor, leading: safeAreaLayoutGuide.leadingAnchor, bottom: nil, trailing: safeAreaLayoutGuide.trailingAnchor, padding: .init(top: 8, left: 8, bottom: 0, right: 8))
-//    formulaImage.heightAnchor.constraint(equalToConstant: 100).isActive = true
     formulaImage.heightAnchor.constraint(equalTo: self.widthAnchor, multiplier: 0.18).isActive = true
-    
-    
     
     //MARK: Middle StackView
     middleStackView.addArrangedSubview(lefttextField)
