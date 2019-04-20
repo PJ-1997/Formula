@@ -17,7 +17,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
   func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
     let layout = UICollectionViewFlowLayout()
     let favoriteController = FavoritesController(collectionViewLayout: layout)
-    
     window = UIWindow()
     window?.makeKeyAndVisible()
     var vc: UIViewController!
@@ -26,11 +25,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
       vc = OnboardingController()
     } else {
       //shows main screen
-      vc = UINavigationController(rootViewController: favoriteController)
-//      vc = OnboardingController()
+      //      vc = UINavigationController(rootViewController: favoriteController)
+      vc = OnboardingController()
     }
     self.window?.rootViewController = vc
-    
     setupAppearance()
     return true
   }
@@ -38,8 +36,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
   fileprivate func setupAppearance() {
     //Different Controllers
     //    window?.rootViewController = UINavigationController(rootViewController: favoriteController)
-//        window?.rootViewController = UINavigationController(rootViewController: SearchController())
-//        window?.rootViewController = UINavigationController(rootViewController: CalculateController())
+    //    window?.rootViewController = UINavigationController(rootViewController: SearchController())
+    //    window?.rootViewController = UINavigationController(rootViewController: CalculateController())
     
     //Apperence
     let navigationBarAppearace = UINavigationBar.appearance()
