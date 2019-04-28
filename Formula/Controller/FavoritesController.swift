@@ -11,8 +11,8 @@ import UIKit
 class FavoritesController: UICollectionViewController {
   
   fileprivate let cellId = "cellId"
-  var favoritedFormulas = UserDefaults.standard.savedFormulas()
-  let favoriteIsEmptyStackView = FavoritedIsEmptyStackView()
+  fileprivate var favoritedFormulas = UserDefaults.standard.savedFormulas()
+  fileprivate let favoriteIsEmptyStackView = FavoritedIsEmptyStackView()
   
   //MARK:- ViewController's Lifecycle
   override func viewDidLoad() {
@@ -23,7 +23,7 @@ class FavoritesController: UICollectionViewController {
   }
   
   override func viewWillAppear(_ animated: Bool) {
-    super.viewWillAppear(true)
+    super.viewWillAppear(animated)
     favoritedFormulas = UserDefaults.standard.savedFormulas()
     collectionView.reloadData()
     if favoritedFormulas.isEmpty {

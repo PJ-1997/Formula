@@ -30,6 +30,8 @@ class FormulasCell: UITableViewCell {
       label.font = UIFont.boldSystemFont(ofSize: 18)
     } else if UIDevice.current.screenType == .iPhones_5_5s_5c_SE {
       label.font = UIFont.systemFont(ofSize: 15, weight: .semibold)
+    } else if UIDevice.current.screenType == .iPhone_XR {
+      label.font = UIFont.systemFont(ofSize: 18, weight: .semibold)
     } else {
       label.font = UIFont.boldSystemFont(ofSize: 16)
     }

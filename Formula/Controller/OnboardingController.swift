@@ -11,7 +11,7 @@ import UIKit
 class OnboardingController: UIViewController {
   //FIXME: Refactor to View
   
-  let onboardingStackView = OnBoardingStackView()
+  fileprivate let onboardingStackView = OnBoardingStackView()
   
   //MARK:- ViewController's Cycle
   override func viewDidLoad() {

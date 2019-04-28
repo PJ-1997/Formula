@@ -6,7 +6,7 @@ extension UIView {
   func scaleAnimate(scale: CGFloat) {
     UIView.animate(withDuration: 0.22, delay: 0, options: .curveEaseInOut, animations: {
       self.transform = CGAffineTransform(scaleX: scale, y: scale)
-    }) { (_) in
+    }) { [unowned self] (_) in
       UIView.animate(withDuration: 0.60, delay: 0, usingSpringWithDamping: 0.37, initialSpringVelocity: 20, options: .curveEaseInOut, animations: {
         self.transform = CGAffineTransform.identity
       })
@@ -61,6 +61,8 @@ extension UISegmentedControl {
       self.setTitleTextAttributes([NSAttributedString.Key.font: Theme.fonts.fontFormulaBold(size: 15) as Any], for: .normal)
     } else if UIDevice.current.screenType == .iPhones_5_5s_5c_SE {
       self.setTitleTextAttributes([NSAttributedString.Key.font: Theme.fonts.fontFormulaBold(size: 13) as Any], for: .normal)
+    } else if UIDevice.current.screenType == .iPhone_XR {
+      self.setTitleTextAttributes([NSAttributedString.Key.font: Theme.fonts.fontFormulaBold(size: 16) as Any], for: .normal)
     } else {
       self.setTitleTextAttributes([NSAttributedString.Key.font: Theme.fonts.fontFormulaBold(size: 14) as Any], for: .normal)
     }
