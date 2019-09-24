@@ -27,10 +27,12 @@ class OnboardingController: UIViewController {
     onboardingStackView.fillSuperview()
   }
   
+  //FIXME:- !!!Not properly showing at start
   @objc func handleExit() {
     let layout = UICollectionViewFlowLayout()
     let favoriteController = FavoritesController(collectionViewLayout: layout)
     let navFavoriteController = UINavigationController(rootViewController: favoriteController)
+    navFavoriteController.modalPresentationStyle = .overFullScreen
     self.present(navFavoriteController, animated: true, completion: {
       UserDefaults.standard.set("true", forKey: "onBoarding")
     })

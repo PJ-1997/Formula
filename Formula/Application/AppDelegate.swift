@@ -49,7 +49,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     } else if UIDevice.current.screenType == .iPhones_5_5s_5c_SE {
       font = Theme.fonts.fontFormulaBold(size: 18)
     } else {
-      font = Theme.fonts.fontFormulaBold(size: 20)
+      font = Theme.fonts.fontFormulaBold(size: 22)
     }
     
     let attributes  = [

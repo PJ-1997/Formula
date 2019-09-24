@@ -8,7 +8,13 @@
 
 import UIKit
 
-class SearchController: UIViewController {
+protocol RefeshDelegate {
+    func refresh()
+}
+
+class SearchController: UIViewController, UIAdaptivePresentationControllerDelegate {
+  
+  var delegate: RefeshDelegate?
   
   let tableView: UITableView = {
     let tableView = UITableView()
@@ -35,12 +41,19 @@ class SearchController: UIViewController {
   //MARK:- ViewController's Lifecycle
   override func viewDidLoad() {
     super.viewDidLoad()
+    navigationController?.presentationController?.delegate = self
     view.backgroundColor = UIColor.greyFormula
     setupSegmentedController(segmentedController)
     setupNavigationItems()
     setupTableView()
     mathFormulas = Formulas.shared.addMathFormulas()
     scienceFormulas = Formulas.shared.addScienceFormulas()
+  }
+  
+  //MARK:- UIAdaptivePresentationControllerDelegate
+  func presentationControllerWillDismiss(_ presentationController: UIPresentationController) {
+    print("Will")
+    delegate?.refresh()
   }
   
   //MARK:- Setup Functions
@@ -65,6 +78,7 @@ class SearchController: UIViewController {
   
   //MARK:- Handle Functions
   @objc func handleDismiss() {
+    delegate?.refresh()
     self.dismiss(animated: true, completion: nil)
   }
   

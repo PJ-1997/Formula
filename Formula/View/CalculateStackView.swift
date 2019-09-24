@@ -91,7 +91,7 @@ class CalculateStackView: UIStackView, UITextFieldDelegate {
     } else if UIDevice.current.screenType == .iPhones_5_5s_5c_SE {
       label.font = UIFont.systemFont(ofSize: 20, weight: .semibold)
     } else {
-      label.font = UIFont.systemFont(ofSize: 22, weight: .semibold)
+      label.font = UIFont.systemFont(ofSize: 24, weight: .semibold)
     }
     label.translatesAutoresizingMaskIntoConstraints = false
     return label
