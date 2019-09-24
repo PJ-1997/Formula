@@ -18,16 +18,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     let favoriteController = FavoritesController(collectionViewLayout: layout)
     window = UIWindow()
     window?.makeKeyAndVisible()
-    var vc: UIViewController!
-    if (UserDefaults.standard.value(forKey: "onBoarding") == nil) {
-      //shows onboarding screen
-      vc = OnboardingController()
-    } else {
-      //shows main screen
-      vc = UINavigationController(rootViewController: favoriteController)
-//      vc = OnboardingController()
-    }
-    self.window?.rootViewController = vc
+    window?.rootViewController = UINavigationController(rootViewController: favoriteController)
     setupAppearance()
     return true
   }

@@ -8,18 +8,11 @@
 
 import UIKit
 
-class FavoritesController: UICollectionViewController, RefeshDelegate {
+let notificationKey = "pm.fetchData"
+
+class FavoritesController: UICollectionViewController {
   
-  func refresh() {
-    favoritedFormulas = UserDefaults.standard.savedFormulas()
-    collectionView.reloadData()
-    if favoritedFormulas.isEmpty {
-      favoriteIsEmptyStackView.alpha = 1
-    } else {
-      favoriteIsEmptyStackView.alpha = 0
-    }
-    print(favoritedFormulas.map{$0.title})
-  }
+  private let nameofkey = Notification.Name(rawValue: notificationKey)
   
   fileprivate let cellId = "cellId"
   fileprivate var favoritedFormulas = UserDefaults.standard.savedFormulas()
@@ -31,6 +24,7 @@ class FavoritesController: UICollectionViewController, RefeshDelegate {
     setupCollectionView()
     setupNavigationItems()
     setupEmptyStackView()
+    createObservers()
   }
   
   override func viewWillAppear(_ animated: Bool) {
@@ -44,10 +38,30 @@ class FavoritesController: UICollectionViewController, RefeshDelegate {
     }
   }
   
+  //MARK:- Observer Code
+  deinit {
+    NotificationCenter.default.removeObserver(self)
+  }
+  
+  func createObservers() {
+    NotificationCenter.default.addObserver(self, selector: #selector(refresh), name: nameofkey, object: nil)
+  }
+  
+  @objc func refresh() {
+    favoritedFormulas = UserDefaults.standard.savedFormulas()
+    collectionView.reloadData()
+    if favoritedFormulas.isEmpty {
+      favoriteIsEmptyStackView.alpha = 1
+    } else {
+      favoriteIsEmptyStackView.alpha = 0
+    }
+    print(favoritedFormulas.map{$0.title})
+  }
+  
   //MARK:- Handle Functions
   @objc func handleSearchPush() {
     let sVC = SearchController()
-    sVC.delegate = self
+    //Put
     let searchController = UINavigationController.init(rootViewController: sVC)
     self.present(searchController, animated: true, completion: nil)
   }

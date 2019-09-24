@@ -10,6 +10,7 @@ import UIKit
 
 class CalculateController: UIViewController {
   
+  let name = Notification.Name(rawValue: notificationKey)
   let calculateStackView = CalculateStackView()
   
   //MARK:- ViewController's Lifecycle

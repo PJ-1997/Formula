@@ -82,6 +82,7 @@ extension SearchController: UITableViewDataSource, UITableViewDelegate, CellDele
   
   //MARK:- Handle Functions
   @objc func handleDismissToFavorite() {
+    NotificationCenter.default.post(name: name, object: nil)
     self.dismiss(animated: true, completion: nil)
   }
   

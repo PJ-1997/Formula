@@ -8,13 +8,9 @@
 
 import UIKit
 
-protocol RefeshDelegate {
-    func refresh()
-}
-
 class SearchController: UIViewController, UIAdaptivePresentationControllerDelegate {
   
-  var delegate: RefeshDelegate?
+  let name = Notification.Name(rawValue: notificationKey)
   
   let tableView: UITableView = {
     let tableView = UITableView()
@@ -52,8 +48,7 @@ class SearchController: UIViewController, UIAdaptivePresentationControllerDelega
   
   //MARK:- UIAdaptivePresentationControllerDelegate
   func presentationControllerWillDismiss(_ presentationController: UIPresentationController) {
-    print("Will")
-    delegate?.refresh()
+    NotificationCenter.default.post(name: name, object: nil)
   }
   
   //MARK:- Setup Functions
@@ -78,7 +73,7 @@ class SearchController: UIViewController, UIAdaptivePresentationControllerDelega
   
   //MARK:- Handle Functions
   @objc func handleDismiss() {
-    delegate?.refresh()
+    NotificationCenter.default.post(name: name, object: nil)
     self.dismiss(animated: true, completion: nil)
   }
   
